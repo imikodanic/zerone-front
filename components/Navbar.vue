@@ -27,7 +27,9 @@ export default {
 
 <template>
   <div>
-    <div class="fixed h-20 lg:h-24 w-full bg-primary-white navbar-shadow">
+    <div
+      class="fixed z-40 h-20 lg:h-24 w-full bg-grayscale-white navbar-shadow"
+    >
       <!-- DESKTOP -->
       <div
         class="lg:flex hidden h-full items-center justify-between px-16 xl:px-24"
@@ -54,9 +56,9 @@ export default {
         </div>
         <div>
           <button
-            class="bg-primary-purple text-grayscale-white text-2xl font-bold px-12 py-4 rounded-full"
+            class="bg-primary-purple text-2xl font-bold px-12 py-4 rounded-full"
           >
-            <span class="text-shadow"> Sign in </span>
+            <span class="text-shadow text-grayscale-white"> Sign in </span>
           </button>
         </div>
       </div>
@@ -70,9 +72,9 @@ export default {
           @click="toggleMenu"
         />
         <button
-          class="bg-primary-purple text-grayscale-white text-lg font-bold px-8 py-2 rounded-lg"
+          class="bg-primary-purple text-lg font-bold px-8 py-2 rounded-lg"
         >
-          <span class="text-shadow"> Sign in </span>
+          <span class="text-shadow text-grayscale-white"> Sign in </span>
         </button>
       </div>
       <div
@@ -102,9 +104,9 @@ export default {
         <div></div>
         <div class="px-10 mb-10">
           <button
-            class="bg-primary-purple text-grayscale-white text-2xl font-bold w-full px-8 py-3 rounded-lg"
+            class="bg-primary-purple text-2xl font-bold w-full px-8 py-3 rounded-lg"
           >
-            <span class="text-shadow"> Sign in </span>
+            <span class="text-shadow text-grayscale-white"> Sign in </span>
           </button>
         </div>
       </div>

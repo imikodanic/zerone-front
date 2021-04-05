@@ -1,11 +1,14 @@
 <template>
   <div>
-    <h1>Zerone</h1>
+    <introduction-section />
   </div>
 </template>
 
 <script>
-export default {}
+import IntroductionSection from '~/components/landing-page/introduction-section/IntroductionSection'
+export default {
+  components: { IntroductionSection },
+}
 </script>
 
-<style></style>
+<style scoped></style>

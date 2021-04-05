@@ -10,7 +10,7 @@ export default {
 <template>
   <div>
     <navbar />
-    <div class="pt-32">
+    <div class="pt-20 lg:pt-24">
       <Nuxt />
     </div>
   </div>
