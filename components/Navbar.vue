@@ -83,7 +83,9 @@ export default {
       >
         <div class="flex items-center justify-between px-5 w-full pt-5">
           <div class="hidden md:block"></div>
-          <logo-horizontal />
+          <nuxt-link to="/" @click.native="toggleMenu">
+            <logo-horizontal />
+          </nuxt-link>
           <close-icon
             class="inline-block cursor-pointer"
             aria-label="Close menu"

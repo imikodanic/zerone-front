@@ -13,6 +13,7 @@ module.exports = {
         },
         grayscale: {
           white: '#FFFFFF',
+          gray: '#4E4B66',
         },
       },
     },

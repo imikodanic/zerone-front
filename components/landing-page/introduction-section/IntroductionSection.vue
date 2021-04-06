@@ -6,7 +6,7 @@ export default {
 
 <template>
   <div>
-    <div class="introduction-section" style="height: 1300px">
+    <div class="introduction-section -mx-32" style="height: 1300px">
       <div class="pt-20 text-center">
         <h1 class="text-8xl font-extrabold keyword-highlight">
           One
