@@ -27,7 +27,7 @@ export default {
         {{ project.description }}
       </p>
       <button
-        class="float-right bg-primary-purple font-bold mt-4 px-12 py-2 mb-4 rounded-full"
+        class="float-right bg-primary-purple w-full md:w-auto font-bold mt-4 px-12 py-2 mb-4 rounded-full"
       >
         <span class="text-shadow text-grayscale-white"> View </span>
       </button>
