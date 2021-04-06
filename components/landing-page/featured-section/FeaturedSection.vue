@@ -34,7 +34,7 @@ export default {
 </script>
 
 <template>
-  <div class="mb-80">
+  <div class="mb-32">
     <h2 class="text-6xl text-center font-bold">Featured projects</h2>
     <div
       class="mx-auto w-32 h-3 bg-primary-yellow mt-10 mb-14 rounded-full"
