@@ -11,7 +11,7 @@ export default {
         content: 'Preview beautifully organized projects with ease and joy.',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', href: '/logos/logo.svg' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
