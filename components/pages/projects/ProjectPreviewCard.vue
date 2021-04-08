@@ -1,6 +1,10 @@
 <script>
+import UsersIcon from '~/static/icons/icon-users.svg?inline'
+import CalendarIcon from '~/static/icons/icon-calendar.svg?inline'
+
 export default {
   name: 'ProjectPreviewCard',
+  components: { UsersIcon, CalendarIcon },
   props: {
     project: {
       type: Object,
@@ -11,20 +15,36 @@ export default {
 </script>
 
 <template>
-  <div class="w-96 shadow-lg rounded-3xl bg-grayscale-white">
-    <div class="h-64 rounded-t-3xl bg-gray-300">
+  <div class="w-full sm:w-80 shadow-lg rounded-lg bg-grayscale-white">
+    <div class="h-64 rounded-t-lg bg-gray-300">
       <img
         :src="project.image"
         alt="Demo"
-        class="object-cover rounded-t-3xl w-full h-full"
+        class="object-cover rounded-t-lg w-full h-full"
       />
     </div>
-    <div class="h-72 px-8 mt-4">
-      <h3 class="text-2xl lg:text-3xl font-bold">
-        {{ project.title }}
-      </h3>
+    <div class="h-56 px-6 mt-4 pb-6 w-full flex flex-col justify-between">
+      <div>
+        <h3 class="text-2xl font-semibold">
+          {{ project.title }}
+        </h3>
+        <div class="w-1/3 h-1 bg-primary-yellow rounded-full"></div>
+        <div class="flex flex-col justify-between mt-1 sm:flex-row">
+          <div class="flex items-end">
+            <users-icon class="inline" />
+            <span class="font-bold text-lg mb-1">{{ project.users }}</span>
+          </div>
+          <div class="flex items-end">
+            <calendar-icon class="inline" />
+            <span class="font-bold text-lg mb-1">
+              {{ project.published_on }}
+            </span>
+          </div>
+        </div>
+      </div>
+
       <button
-        class="float-right bg-primary-purple w-full md:w-auto font-bold mt-4 px-12 py-2 mb-4 rounded-full"
+        class="bg-primary-purple w-full font-bold px-12 py-2 rounded-full mt-4"
       >
         <span class="text-shadow text-grayscale-white"> View </span>
       </button>
