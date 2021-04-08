@@ -26,11 +26,9 @@ export default {
         >
           {{ group.description }}
         </p>
-        <button
-          class="bg-primary-purple w-full md:w-auto font-bold mt-4 px-12 py-2 rounded-full hidden 2xl:block"
-        >
-          <span class="text-shadow text-grayscale-white"> Open </span>
-        </button>
+        <t-button class="mt-4 px-12 py-2 md:w-auto hidden 2xl:block">
+          Open
+        </t-button>
       </div>
       <!-- Image -->
       <div class="w-72 h-72 xl:w-56 xl:h-56 flex-shrink-0 order-1 xl:order-2">
@@ -42,10 +40,6 @@ export default {
       </div>
     </div>
     <!-- Full width button (hidden on 2xl screen) -->
-    <button
-      class="bg-primary-purple w-full font-bold mt-8 px-12 py-2 rounded-full block 2xl:hidden"
-    >
-      <span class="text-shadow text-grayscale-white"> Open </span>
-    </button>
+    <t-button class="mt-8 px-12 py-2 block w-full 2xl:hidden">Open</t-button>
   </div>
 </template>

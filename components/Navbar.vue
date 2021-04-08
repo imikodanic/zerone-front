@@ -55,11 +55,7 @@ export default {
           </div>
         </div>
         <div>
-          <button
-            class="bg-primary-purple text-2xl font-bold px-12 py-4 rounded-full"
-          >
-            <span class="text-shadow text-grayscale-white"> Sign in </span>
-          </button>
+          <t-button class="px-12 py-4 text-2xl">Sign in</t-button>
         </div>
       </div>
       <!-- MOBILE -->
@@ -71,6 +67,7 @@ export default {
           aria-label="Open menu"
           @click="toggleMenu"
         />
+
         <button
           class="bg-primary-purple text-lg font-bold px-8 py-2 rounded-lg"
         >

@@ -43,11 +43,7 @@ export default {
         </div>
       </div>
 
-      <button
-        class="bg-primary-purple w-full font-bold px-12 py-2 rounded-full mt-4"
-      >
-        <span class="text-shadow text-grayscale-white"> View </span>
-      </button>
+      <t-button class="py-2 mt-4">View</t-button>
     </div>
   </div>
 </template>
