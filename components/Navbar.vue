@@ -12,7 +12,7 @@ export default {
         { title: 'Projects', to: 'projects' },
         { title: 'Groups', to: 'groups' },
         { title: 'What we do', to: 'what-we-do' },
-        { title: 'About us', to: 'about-us' },
+        { title: 'About us', to: 'about' },
       ],
       openedMenu: false,
     }
