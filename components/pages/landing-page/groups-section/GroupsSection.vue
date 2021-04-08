@@ -1,5 +1,5 @@
 <script>
-import GroupCard from '@/components/landing-page/groups-section/GroupCard'
+import GroupCard from '@/components/pages/landing-page/groups-section/GroupCard'
 export default {
   name: 'GroupsSection',
   components: { GroupCard },

@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
 .introduction-section {
-  background-image: url('~/static/landing-page/section-1/bg-section-1.svg');
+  background-image: url('~/static/pages/landing-page/section-1/bg-section-1.svg');
   @apply bg-contain;
   @apply bg-no-repeat;
 }
@@ -38,7 +38,7 @@ export default {
 
 @media screen and (max-width: 640px) {
   .introduction-section {
-    background-image: url('~/static/landing-page/section-1/bg-section-1-mobile.svg');
+    background-image: url('~/static/pages/landing-page/section-1/bg-section-1-mobile.svg');
   }
 }
 </style>

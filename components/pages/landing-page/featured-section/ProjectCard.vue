@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <div class="w-96 shadow-lg rounded-3xl">
+  <div class="w-96 shadow-lg rounded-3xl bg-grayscale-white">
     <div class="h-64 rounded-t-3xl bg-gray-300">
       <img
         :src="project.image"

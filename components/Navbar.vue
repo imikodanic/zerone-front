@@ -1,7 +1,7 @@
 <script>
 import LogoHorizontal from '~/static/logos/logo-horizontal.svg?inline'
-import MenuIcon from '~/static/landing-page/menu-icon.svg?inline'
-import CloseIcon from '~/static/landing-page/close-icon.svg?inline'
+import MenuIcon from '~/static/pages/landing-page/menu-icon.svg?inline'
+import CloseIcon from '~/static/pages/landing-page/close-icon.svg?inline'
 
 export default {
   name: 'Navbar',
@@ -32,7 +32,7 @@ export default {
     >
       <!-- DESKTOP -->
       <div
-        class="lg:flex hidden h-full items-center justify-between px-16 xl:px-24"
+        class="lg:flex hidden h-full items-center justify-between px-14 xl:px-24"
       >
         <nuxt-link to="/">
           <logo-horizontal class="cursor-pointer" />

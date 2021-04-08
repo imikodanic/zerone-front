@@ -1,5 +1,5 @@
 <script>
-import ProjectCard from '@/components/landing-page/featured-section/ProjectCard'
+import ProjectCard from '@/components/pages/landing-page/featured-section/ProjectCard'
 export default {
   name: 'FeaturedSection',
   components: { ProjectCard },

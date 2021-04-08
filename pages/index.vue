@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import IntroductionSection from '@/components/landing-page/introduction-section/IntroductionSection'
-import FeaturedSection from '@/components/landing-page/featured-section/FeaturedSection'
-import GroupsSection from '@/components/landing-page/groups-section/GroupsSection'
+import IntroductionSection from '@/components/pages/landing-page/introduction-section/IntroductionSection'
+import FeaturedSection from '@/components/pages/landing-page/featured-section/FeaturedSection'
+import GroupsSection from '@/components/pages/landing-page/groups-section/GroupsSection'
 import DefaultFooter from '@/components/Footer'
 export default {
   components: {

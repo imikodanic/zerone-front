@@ -17,7 +17,7 @@ export default {
         </h6>
         <a href="http://elpros.net/" target="_blank">
           <img
-            src="@/static/landing-page/icon-website.svg"
+            src="@/static/pages/landing-page/icon-website.svg"
             alt="ELPROS Website"
             class="inline"
           />
@@ -27,7 +27,7 @@ export default {
           target="_blank"
         >
           <img
-            src="@/static/landing-page/icon-facebook.svg"
+            src="@/static/pages/landing-page/icon-facebook.svg"
             alt="Facebook"
             class="inline mx-4"
           />
@@ -37,7 +37,7 @@ export default {
           target="_blank"
         >
           <img
-            src="@/static/landing-page/icon-youtube.svg"
+            src="@/static/pages/landing-page/icon-youtube.svg"
             alt="Youtube"
             class="inline"
           />
@@ -74,7 +74,7 @@ export default {
 
 <style scoped>
 .footer_container {
-  background-image: url('~/static/landing-page/bg-footer-wave.svg');
+  background-image: url('~/static/pages/landing-page/bg-footer-wave.svg');
   @apply bg-bottom;
   @apply bg-no-repeat;
   @apply bg-contain;
