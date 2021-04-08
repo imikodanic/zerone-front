@@ -97,7 +97,7 @@ export default {
       These are all projects in our database from which you can get
       <span class="text-primary-purple font-bold">all the information</span>.
     </p>
-    <div v-for="group in groups" :key="`group-${group.id}`" class="mt-10">
+    <div v-for="group in groups" :key="`group-${group.id}`" class="mt-20">
       <div class="flex items-center">
         <div class="w-10 h-2 bg-primary-yellow rounded-full mr-5"></div>
         <h1 class="text-3xl font-bold">{{ group.title }}</h1>
