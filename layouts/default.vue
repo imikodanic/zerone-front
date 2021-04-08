@@ -8,7 +8,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="default-layout">
     <navbar />
     <div class="pt-20 lg:pt-24">
       <Nuxt />

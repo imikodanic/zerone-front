@@ -77,6 +77,7 @@ export default {
           <span class="text-shadow text-grayscale-white"> Sign in </span>
         </button>
       </div>
+      <!-- MOBILE MENU -->
       <div
         class="fixed flex flex-col justify-between z-50 top-0 h-0 w-screen transition-all duration-500 ease-in-out overflow-y-hidden bg-grayscale-white"
         :class="{ 'h-screen': openedMenu }"
@@ -84,7 +85,7 @@ export default {
         <div class="flex items-center justify-between px-5 w-full pt-5">
           <div class="hidden md:block"></div>
           <nuxt-link to="/" @click.native="toggleMenu">
-            <logo-horizontal />
+            <img src="@/static/logos/logo-horizontal.svg" alt="" />
           </nuxt-link>
           <close-icon
             class="inline-block cursor-pointer"
