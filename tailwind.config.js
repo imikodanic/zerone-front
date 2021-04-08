@@ -11,6 +11,9 @@ module.exports = {
           red: '#D63031',
           green: '#55EFC4',
         },
+        secondary: {
+          purple: '#8C80EA',
+        },
         grayscale: {
           white: '#FFFFFF',
           gray: { DEFAULT: '#4E4B66', light: '#ADADAD' },

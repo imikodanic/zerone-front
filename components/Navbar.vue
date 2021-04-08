@@ -69,7 +69,7 @@ export default {
         />
 
         <button
-          class="bg-primary-purple text-lg font-bold px-8 py-2 rounded-lg"
+          class="bg-primary-purple text-lg font-bold px-8 py-2 rounded-lg hover:bg-secondary-purple transition-colors"
         >
           <span class="text-shadow text-grayscale-white"> Sign in </span>
         </button>
@@ -104,7 +104,7 @@ export default {
         <div></div>
         <div class="px-10 mb-10">
           <button
-            class="bg-primary-purple text-2xl font-bold w-full px-8 py-3 rounded-lg"
+            class="bg-primary-purple text-2xl font-bold w-full px-8 py-3 rounded-lg hover:bg-secondary-purple transition-colors"
           >
             <span class="text-shadow text-grayscale-white"> Sign in </span>
           </button>
