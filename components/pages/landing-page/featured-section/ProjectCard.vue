@@ -19,7 +19,7 @@ export default {
         class="object-cover rounded-t-3xl w-full h-full"
       />
     </div>
-    <div class="h-72 px-8 mt-4">
+    <div class="h-full pb-2 px-8 mt-4">
       <h3 class="text-2xl lg:text-3xl font-bold">
         {{ project.title }}
       </h3>
