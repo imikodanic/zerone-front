@@ -41,7 +41,7 @@ export default {
 </script>
 
 <template>
-  <div class="mb-20">
+  <div>
     <h3 class="text-4xl font-bold">All projects are organized into groups</h3>
     <p class="text-2xl mt-4">
       We organized all of our projects in separate groups so you can easily
