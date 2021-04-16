@@ -6,43 +6,48 @@ export default {
     return {
       groups: [
         {
+          id: 11,
+          title: 'eTwinning projects',
+          image:
+            'https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300',
+          description:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et augue ullamcorper felis facilisis convallis non quis dolor. Nunc feugiat pharetra ex, non euismod enim eleifend a. Curabitur metus magna, ornare et eleifend sit amet, convallis vitae sapien. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+          coordinator: 'Karolina Brleković',
+          projects: 10,
+          members: 20,
+        },
+        {
           id: 12,
-          title: 'eTwinning projects',
+          title: 'Erasmus + projects',
           image:
             'https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300',
           description:
-            'This is the collaborative part of the Erasmus+ project for 2020-2022 "Healthier Together" with 5 high schools from Croatia, France, Italy, Romania and Turkey.\n' +
-            'ASdamsdlkamsdlk askdmlas da sdlk sald asdlk asdlk sadk asld This is the collaborative part of the Erasmus+ project for 2020-2022 "Healthier Together" with 5 high schools from Croatia, France, Italy, Romania and Turkey.\n' +
-            'ASdamsdlkamsdlk askdmlas da sdlk sald asdlk asdlk sadk asld',
-          coordinator: 'Karolina Brleković',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et augue ullamcorper felis facilisis convallis non quis dolor. Nunc feugiat pharetra ex, non euismod enim eleifend a. Curabitur metus magna, ornare et eleifend sit amet, convallis vitae sapien. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+          coordinator: 'Marin Kanaet',
           projects: 6,
-          members: 42,
+          members: 12,
         },
         {
-          id: 233,
-          title: 'eTwinning projects',
+          id: 14,
+          title: 'Ostali projekti',
           image:
             'https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300',
           description:
-            'This is the collaborative part of the Erasmus+ project for 2020-2022 "Healthier Together" with 5 high schools from Croatia, France, Italy, Romania and Turkey.\n' +
-            'ASdamsdlkamsdlk askdmlas da sdlk sald asdlk asdlk sadk asld This is the collaborative part of the Erasmus+ project for 2020-2022 "Healthier Together" with 5 high schools from Croatia, France, Italy, Romania and Turkey.\n' +
-            'ASdamsdlkamsdlk askdmlas da sdlk sald asdlk asdlk sadk asld',
-          coordinator: 'Karolina Brleković',
-          projects: 6,
-          members: 42,
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et augue ullamcorper felis facilisis convallis non quis dolor. Nunc feugiat pharetra ex, non euismod enim eleifend a. Curabitur metus magna, ornare et eleifend sit amet, convallis vitae sapien. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+          coordinator: 'Ivan Marušić',
+          projects: 1,
+          members: 23,
         },
         {
-          id: 111,
-          title: 'eTwinning projects',
+          id: 13,
+          title: 'Povijest projekti',
           image:
             'https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300',
           description:
-            'This is the collaborative part of the Erasmus+ project for 2020-2022 "Healthier Together" with 5 high schools from Croatia, France, Italy, Romania and Turkey.\n' +
-            'ASdamsdlkamsdlk askdmlas da sdlk sald asdlk asdlk sadk asld This is the collaborative part of the Erasmus+ project for 2020-2022 "Healthier Together" with 5 high schools from Croatia, France, Italy, Romania and Turkey.\n' +
-            'ASdamsdlkamsdlk askdmlas da sdlk sald asdlk asdlk sadk asld',
-          coordinator: 'Karolina Brleković',
-          projects: 6,
-          members: 42,
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et augue ullamcorper felis facilisis convallis non quis dolor. Nunc feugiat pharetra ex, non euismod enim eleifend a. Curabitur metus magna, ornare et eleifend sit amet, convallis vitae sapien. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+          coordinator: 'Davor Cvenić',
+          projects: 2,
+          members: 32,
         },
       ],
     }

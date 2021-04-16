@@ -13,30 +13,31 @@ export default {
               id: 'project1',
               title: 'Healthier together',
               image:
+                'https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg',
+              users: 5,
+              published_on: 'May 1st, 2021.',
+            },
+            {
+              id: 'project2',
+              title: 'STEAMFUL',
+              image:
+                'https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg',
+              users: 10,
+              published_on: 'May 5th, 2021.',
+            },
+            {
+              id: 'project3',
+              title: 'KreativnOSt',
+              image:
                 'https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300',
               users: 23,
               published_on: 'May 1st, 2021.',
             },
             {
-              title: 'Healthier together Erasmus + Projects',
+              title: 'Random project',
               image:
                 'https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg',
-              users: 23,
-              published_on: 'May 1st, 2021.',
-            },
-            {
-              id: 'project1',
-              title: 'Healthier together',
-              image:
-                'https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300',
-              users: 23,
-              published_on: 'May 1st, 2021.',
-            },
-            {
-              title: 'Healthier together Erasmus + Projects',
-              image:
-                'https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg',
-              users: 23,
+              users: 9,
               published_on: 'May 1st, 2021.',
             },
           ],
@@ -47,25 +48,26 @@ export default {
           projects: [
             {
               id: 'project1',
-              title: 'Healthier together',
+              title: 'Detektivske priče',
               image:
-                'https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300',
-              users: 23,
+                'https://media.macphun.com/img/uploads/customer/how-to/579/15531840725c93b5489d84e9.43781620.jpg?q=85&w=1340',
+              users: 27,
               published_on: 'May 1st, 2021.',
             },
             {
-              title: 'Healthier together Erasmus + Projects',
+              id: 'project2',
+              title: 'Math in media',
               image:
-                'https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg',
-              users: 23,
+                'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1217538342.png?crop=0.662xw:1.00xh;0.173xw,0&resize=640:*',
+              users: 10,
               published_on: 'May 1st, 2021.',
             },
             {
-              id: 'project1',
-              title: 'Healthier together',
+              id: 'project3',
+              title: 'Neki projekt',
               image:
-                'https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300',
-              users: 23,
+                'https://cdn.discordapp.com/attachments/773590074133577808/832506191921545226/city-6156596_960_720.png',
+              users: 19,
               published_on: 'May 1st, 2021.',
             },
           ],
@@ -75,10 +77,18 @@ export default {
           title: 'Other projects',
           projects: [
             {
-              id: 'project3',
-              title: 'Healthier together',
+              id: 'project1',
+              title: 'Projekt iz povijesti',
               image:
-                'https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300',
+                'https://i.pinimg.com/originals/27/64/e7/2764e720f8bba785e3b88d2072f403ae.jpg',
+              users: 23,
+              published_on: 'May 1st, 2021.',
+            },
+            {
+              id: 'project2',
+              title: 'Projekt za biologiju',
+              image:
+                'https://media.discordapp.net/attachments/773590074133577808/832506379754536990/laptop-5987093_960_720.png',
               users: 23,
               published_on: 'May 1st, 2021.',
             },

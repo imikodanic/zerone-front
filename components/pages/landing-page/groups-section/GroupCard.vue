@@ -26,7 +26,10 @@ export default {
         >
           {{ group.description }}
         </p>
-        <t-button class="mt-4 px-12 py-2 md:w-auto hidden 2xl:block">
+        <t-button
+          class="mt-4 px-12 py-2 md:w-auto hidden 2xl:block"
+          @click="$router.push('/groups/etwinning-projects')"
+        >
           Open
         </t-button>
       </div>
@@ -40,6 +43,10 @@ export default {
       </div>
     </div>
     <!-- Full width button (hidden on 2xl screen) -->
-    <t-button class="mt-8 px-12 py-2 block w-full 2xl:hidden">Open</t-button>
+    <t-button
+      class="mt-8 px-12 py-2 block w-full 2xl:hidden"
+      @click="$router.push('/groups/etwinning-projects')"
+      >Open</t-button
+    >
   </div>
 </template>

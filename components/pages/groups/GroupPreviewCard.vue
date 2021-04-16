@@ -42,7 +42,7 @@ export default {
       class="bg-primary-yellow flex-shrink-0 rounded-full mx-6 h-1.5 w-full mt-5 xl:mt-0 xl:h-full xl:w-1.5"
     />
     <div
-      class="flex-shrink-0 h-full pt-2 xl:pb-5 flex flex-col justify-between w-full lg:w-auto"
+      class="flex-shrink-0 h-full pt-2 xl:pb-5 flex flex-col justify-between w-full lg:w-80"
     >
       <div>
         <user-icon class="inline" />
@@ -65,7 +65,12 @@ export default {
           <span class="text-primary-purple">{{ group.members }} members</span>
         </span>
       </div>
-      <t-button class="mt-2 md:mt-0">Open</t-button>
+      <t-button
+        class="mt-2 md:mt-0"
+        @click="$router.push('/groups/etwinning-projects')"
+      >
+        Open
+      </t-button>
     </div>
   </div>
 </template>
