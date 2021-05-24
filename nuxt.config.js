@@ -15,10 +15,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/baseStyle.css'],
+  css: ['~/assets/baseStyle.css', '~/assets/transitions.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/globalComponents.js'],
+  plugins: ['~/plugins/globalComponents.js', '~/plugins/axios.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -41,9 +41,6 @@ export default {
     '@nuxtjs/svg',
   ],
 
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
-
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
@@ -53,4 +50,14 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  // RuntimeConfig Properties https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-runtime-config
+  publicRuntimeConfig: {
+    apiURL: process.env.API_URL,
+  },
+
+  // https://nuxtjs.org/docs/2.x/features/loading
+  loading: {
+    color: '#6C5CE7',
+  },
 }

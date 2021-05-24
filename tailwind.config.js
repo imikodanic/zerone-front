@@ -19,6 +19,9 @@ module.exports = {
           gray: { DEFAULT: '#4E4B66', light: '#ADADAD' },
         },
       },
+      borderWidth: {
+        3: '3px',
+      },
     },
   },
   variants: {
