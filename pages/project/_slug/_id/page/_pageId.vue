@@ -17,7 +17,7 @@ export default {
     <h2 class="text-4xl mb-3">
       {{ page.title }}
     </h2>
-    <div class="break-words">
+    <div class="word-break">
       <div v-html="page.description"></div>
     </div>
   </div>

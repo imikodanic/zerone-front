@@ -23,6 +23,9 @@ module.exports = {
         3: '3px',
       },
     },
+    stroke: (theme) => ({
+      white: theme('colors.grayscale.white'),
+    }),
   },
   variants: {
     extend: {

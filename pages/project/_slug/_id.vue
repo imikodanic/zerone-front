@@ -53,13 +53,13 @@ export default {
 <template>
   <div class="flex">
     <project-sidebar :pages="pages" />
-    <div class="w-full mt-10">
+    <div class="w-full mt-10 lg:ml-72">
       <h1 class="text-6xl font-light text-center w-full">
         {{ project.title }}
       </h1>
       <div class="mx-auto w-28 h-1.5 bg-primary-yellow mt-2 rounded-full"></div>
 
-      <div class="ml-72 px-20 mt-5">
+      <div class="px-5 lg:px-20 mt-5">
         <nuxt-child />
       </div>
     </div>
