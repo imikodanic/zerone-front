@@ -26,27 +26,26 @@ export default {
         >
           {{ group.description }}
         </p>
-        <t-button
-          class="mt-4 px-12 py-2 md:w-auto hidden 2xl:block"
-          @click="$router.push('/groups/etwinning-projects')"
-        >
-          Open
-        </t-button>
+        <nuxt-link :to="`/groups/${group.id}`">
+          <t-button class="mt-4 px-12 py-2 md:w-auto hidden 2xl:block">
+            Open
+          </t-button>
+        </nuxt-link>
       </div>
       <!-- Image -->
       <div class="w-72 h-72 xl:w-56 xl:h-56 flex-shrink-0 order-1 xl:order-2">
         <img
-          :src="group.image"
+          :src="group.image || '/logos/logo.svg'"
           alt="Demo"
           class="object-cover w-full h-full rounded-2xl"
         />
       </div>
     </div>
     <!-- Full width button (hidden on 2xl screen) -->
-    <t-button
-      class="mt-8 px-12 py-2 block w-full 2xl:hidden"
-      @click="$router.push('/groups/etwinning-projects')"
-      >Open</t-button
-    >
+    <nuxt-link :to="`/groups/${group.id}`">
+      <t-button class="mt-8 px-12 py-2 block w-full 2xl:hidden">
+        Open
+      </t-button>
+    </nuxt-link>
   </div>
 </template>

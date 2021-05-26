@@ -1,8 +1,8 @@
 <template>
   <div class="px-5 lg:px-32">
     <introduction-section />
-    <featured-section />
-    <groups-section />
+    <featured-section :featured-projects="featuredProjects" />
+    <groups-section :project-groups="projectGroups" />
   </div>
 </template>
 
@@ -15,6 +15,30 @@ export default {
     IntroductionSection,
     FeaturedSection,
     GroupsSection,
+  },
+  async asyncData({ $axios }) {
+    try {
+      const requests = [
+        $axios.$get('/public/project-groups', {
+          // get 4 latest updated project groups
+          params: { limit: 4, orderBy: 'updated_at', order: 'desc' },
+        }),
+        $axios.$get('public/projects', { params: { is_featured: true } }),
+      ]
+
+      const [groups, featuredProjects] = await Promise.all(requests)
+
+      return {
+        projectGroups: groups.data.data,
+        featuredProjects: featuredProjects.data.data,
+      }
+    } catch {}
+  },
+  data() {
+    return {
+      projectGroups: [],
+      featuredProjects: [],
+    }
   },
 }
 </script>

@@ -11,6 +11,7 @@ export default {
       required: true,
     },
   },
+  methods: {},
 }
 </script>
 
@@ -18,7 +19,7 @@ export default {
   <div class="w-full sm:w-80 shadow-lg rounded-lg bg-grayscale-white">
     <div class="h-64 rounded-t-lg bg-gray-300">
       <img
-        :src="project.image"
+        :src="project.image || '/logos/logo.svg'"
         alt="Demo"
         class="object-cover rounded-t-lg w-full h-full"
       />
@@ -32,18 +33,19 @@ export default {
         <div class="flex flex-col justify-between mt-1 sm:flex-row">
           <div class="flex items-end">
             <users-icon class="inline" />
-            <span class="font-bold text-lg mb-1">{{ project.users }}</span>
+            <span class="font-bold text-lg mb-1">{{ project.users || 1 }}</span>
           </div>
           <div class="flex items-end">
             <calendar-icon class="inline" />
             <span class="font-bold text-lg mb-1">
-              {{ project.published_on }}
+              {{ project.updated_at | formatDate }}
             </span>
           </div>
         </div>
       </div>
-
-      <t-button class="py-2 mt-4">View</t-button>
+      <nuxt-link :to="`/project/${project.title}/${project.id}`">
+        <t-button class="py-2 mt-4">View</t-button>
+      </nuxt-link>
     </div>
   </div>
 </template>

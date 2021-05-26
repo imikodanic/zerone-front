@@ -18,7 +18,11 @@ export default {
   css: ['~/assets/baseStyle.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/globalComponents.js', '~/plugins/axios.js'],
+  plugins: [
+    '~/plugins/globalComponents.js',
+    '~/plugins/axios.js',
+    '~/plugins/globalMixin.js',
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
