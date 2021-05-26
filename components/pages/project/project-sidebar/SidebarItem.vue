@@ -1,18 +1,21 @@
 <template>
-  <div class="px-5 py-1">
-    <div v-if="!Object(page.pages).length">
-      <nuxt-link :to="pagePath" class="text-lg font-medium group">
-        <span
-          class="w-4 h-4 inline-block rounded-full border-3 border-primary-purple group-hover:bg-white"
-          :class="{
-            'bg-white': isActive,
-            'bg-primary-purple': !isActive,
-          }"
-        ></span>
+  <div class="px-5 py-1 truncate">
+    <nuxt-link
+      v-if="!pages.length"
+      :to="pagePath"
+      class="text-lg font-medium group"
+    >
+      <span
+        class="w-4 h-4 inline-block rounded-full border-3 border-primary-purple group-hover:bg-white"
+        :class="{
+          'bg-white': isActive,
+          'bg-primary-purple': !isActive,
+        }"
+      ></span>
 
-        {{ page.title }}
-      </nuxt-link>
-    </div>
+      {{ page.title }}
+    </nuxt-link>
+
     <div v-else>
       <div
         class="relative w-3 h-3 ml-0.5 inline-block cursor-pointer"
@@ -31,15 +34,19 @@
       <nuxt-link :to="pagePath" class="text-lg font-medium ml-1">
         {{ page.title }}
       </nuxt-link>
+      <!--
+      This style max-height is here because of clean height transition
+      See more: Technique 1: https://css-tricks.com/using-css-transitions-auto-dimensions/
+       -->
       <div
-        class="transition-all overflow-y-hidden h-full duration-500"
+        class="overflow-y-hidden h-full transition-all duration-500"
         :class="{
           'max-h-0': !isExpanded,
-          'max-h-screen': isExpanded,
         }"
+        :style="isExpanded && `max-height: ${36 * pages.length}px`"
       >
         <sidebar-item
-          v-for="subPage in page.pages"
+          v-for="subPage in pages"
           :key="`page-${subPage.id}`"
           :page="subPage"
           class="ml-2"
@@ -64,12 +71,21 @@ export default {
     }
   },
   computed: {
+    pages() {
+      return this.page.pages || []
+    },
     pagePath() {
       const { slug, id } = this.$route.params
       return `/project/${slug}/${id}/page/${this.page.id}`
     },
     isActive() {
-      return this.page.id === Number(this.$route.params.pageId)
+      const { pageId } = this.$route.params
+      const isPageSelected = this.page.id === Number(pageId)
+      const isSubpageSelected = this.pages.some(
+        (page) => page.id === Number(pageId)
+      )
+
+      return isPageSelected || isSubpageSelected
     },
   },
   methods: {
