@@ -43,6 +43,8 @@ export default {
     '@nuxtjs/pwa',
     // https://www.npmjs.com/package/@nuxtjs/svg
     '@nuxtjs/svg',
+    // https://www.npmjs.com/package/vue-scrollto
+    'vue-scrollto/nuxt',
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
