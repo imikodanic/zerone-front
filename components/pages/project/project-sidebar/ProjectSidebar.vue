@@ -25,7 +25,7 @@ export default {
 </script>
 <template>
   <div
-    class="fixed right-0 lg:left-0 z-50"
+    class="fixed right-0 lg:left-0 z-40"
     :class="isMenuOpened ? 'top-0 left-0' : 'top-52 lg:top-24'"
   >
     <div
