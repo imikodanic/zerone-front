@@ -59,7 +59,7 @@ export default {
       </h1>
       <div class="mx-auto w-28 h-1.5 bg-primary-yellow mt-2 rounded-full"></div>
 
-      <div class="px-5 lg:px-20 mt-5">
+      <div class="px-5 lg:px-20 mt-5 pb-8">
         <nuxt-child />
       </div>
     </div>

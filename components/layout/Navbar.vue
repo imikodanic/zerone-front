@@ -25,6 +25,7 @@ export default {
     },
     openSignIn() {
       this.signInModal = true
+      this.openedMenu = false
     },
   },
 }
@@ -33,7 +34,7 @@ export default {
 <template>
   <div>
     <div
-      class="fixed z-40 h-20 lg:h-24 w-full bg-grayscale-white navbar-shadow"
+      class="fixed z-30 h-20 lg:h-24 w-full bg-grayscale-white navbar-shadow"
     >
       <!-- DESKTOP -->
       <div
@@ -60,9 +61,9 @@ export default {
           </div>
         </div>
         <div>
-          <t-button class="px-12 py-4 text-2xl" @click="openSignIn"
-            >Sign in</t-button
-          >
+          <t-button class="px-12 py-4 text-2xl" @click="openSignIn">
+            Sign in
+          </t-button>
         </div>
       </div>
       <!-- MOBILE -->
