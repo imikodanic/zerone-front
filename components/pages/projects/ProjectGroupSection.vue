@@ -49,7 +49,8 @@ export default {
       :class="{
         'max-h-0': !isExpanded,
       }"
-      :style="isExpanded && `max-height: 496px`"
+      style="height: 530px"
+      :style="isExpanded && `max-height: 530px;`"
     >
       <project-preview-card
         v-for="project in projectGroup.projects"
