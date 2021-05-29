@@ -1,11 +1,12 @@
 <script>
+import SignInModal from '@/components/layout/SignInModal'
 import LogoHorizontal from '~/static/logos/logo-horizontal.svg?inline'
 import MenuIcon from '~/static/pages/landing-page/menu-icon.svg?inline'
 import CloseIcon from '~/static/pages/landing-page/close-icon.svg?inline'
 
 export default {
   name: 'Navbar',
-  components: { LogoHorizontal, MenuIcon, CloseIcon },
+  components: { LogoHorizontal, MenuIcon, CloseIcon, SignInModal },
   data() {
     return {
       navbarItems: [
@@ -15,11 +16,15 @@ export default {
         { title: 'About us', to: '/about' },
       ],
       openedMenu: false,
+      signInModal: false,
     }
   },
   methods: {
     toggleMenu() {
       this.openedMenu = !this.openedMenu
+    },
+    openSignIn() {
+      this.signInModal = true
     },
   },
 }
@@ -55,7 +60,9 @@ export default {
           </div>
         </div>
         <div>
-          <t-button class="px-12 py-4 text-2xl">Sign in</t-button>
+          <t-button class="px-12 py-4 text-2xl" @click="openSignIn"
+            >Sign in</t-button
+          >
         </div>
       </div>
       <!-- MOBILE -->
@@ -70,6 +77,7 @@ export default {
 
         <button
           class="bg-primary-purple text-lg font-bold px-8 py-2 rounded-lg hover:bg-secondary-purple transition-colors"
+          @click="openSignIn"
         >
           <span class="text-shadow text-grayscale-white"> Sign in </span>
         </button>
@@ -105,12 +113,16 @@ export default {
         <div class="px-10 mb-10">
           <button
             class="bg-primary-purple text-2xl font-bold w-full px-8 py-3 rounded-lg hover:bg-secondary-purple transition-colors"
+            @click="openSignIn"
           >
             <span class="text-shadow text-grayscale-white"> Sign in </span>
           </button>
         </div>
       </div>
     </div>
+
+    <!-- MODALS -->
+    <sign-in-modal v-model="signInModal" />
   </div>
 </template>
 

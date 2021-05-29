@@ -1,6 +1,6 @@
 <script>
-import Navbar from '@/components/Navbar'
-import DefaultFooter from '@/components/Footer'
+import Navbar from '@/components/layout/Navbar'
+import DefaultFooter from '@/components/layout/Footer'
 
 export default {
   components: {
