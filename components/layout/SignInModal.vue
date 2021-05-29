@@ -7,9 +7,28 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      form: {
+        email: null,
+        password: null,
+      },
+    }
+  },
   methods: {
     closeModal() {
       this.$emit('input', false)
+    },
+    async signIn() {
+      try {
+        const { data } = await this.$auth.loginWith('local', {
+          data: this.form,
+        })
+        console.log(data)
+        this.$toast.success('Successfully signed in!')
+      } catch (e) {
+        this.$toast.error(this.$extractError(e))
+      }
     },
   },
 }
@@ -32,6 +51,7 @@ export default {
             <div>
               <div class="text-sm font-bold tracking-wide">Email Address</div>
               <input
+                v-model="form.email"
                 class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
                 type="email"
                 placeholder="ihorvat@gmail.com"
@@ -51,6 +71,7 @@ export default {
                 <!--                </div>-->
               </div>
               <input
+                v-model="form.password"
                 class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
                 type="password"
                 placeholder="Enter your password"
@@ -62,7 +83,7 @@ export default {
               <!--              >-->
               <!--                Log In-->
               <!--              </button>-->
-              <t-button class="py-4 text-xl">Sign in</t-button>
+              <t-button class="py-4 text-xl" @click="signIn">Sign in</t-button>
             </div>
           </form>
           <!--          <div-->

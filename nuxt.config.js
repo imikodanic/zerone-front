@@ -45,6 +45,10 @@ export default {
     '@nuxtjs/svg',
     // https://www.npmjs.com/package/vue-scrollto
     'vue-scrollto/nuxt',
+    // https://www.npmjs.com/package/@nuxtjs/toast
+    '@nuxtjs/toast',
+    // https://auth.nuxtjs.org/guide/setup
+    '@nuxtjs/auth-next',
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -65,5 +69,30 @@ export default {
   // https://nuxtjs.org/docs/2.x/features/loading
   loading: {
     color: '#6C5CE7',
+  },
+
+  // https://www.npmjs.com/package/@nuxtjs/toast#setup
+  toast: {
+    duration: 3000,
+  },
+
+  // Nuxt auth-next module options https://auth.nuxtjs.org/api/options
+  auth: {
+    // Auth module strategies https://auth.nuxtjs.org/schemes/local
+    strategies: {
+      local: {
+        token: {
+          property: 'data.token',
+        },
+        user: {
+          property: 'data',
+        },
+        endpoints: {
+          login: { url: 'auth/login', method: 'post' },
+          logout: false, // logout only locally
+          user: { url: 'users/me', method: 'get' },
+        },
+      },
+    },
   },
 }
