@@ -1,5 +1,7 @@
 <script>
-export default {}
+export default {
+  middleware: 'checkAdmin',
+}
 </script>
 
 <template>

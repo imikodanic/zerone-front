@@ -14,5 +14,5 @@ module.exports = {
   ],
   plugins: [],
   // add your custom rules here
-  rules: { 'vue/no-v-html': 'off' },
+  rules: { 'vue/no-v-html': 'off', camelcase: 'off' },
 }

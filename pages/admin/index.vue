@@ -1,6 +1,12 @@
 <script>
 export default {
   layout: 'admin',
+
+  head() {
+    return {
+      title: 'Zerone - Admin',
+    }
+  },
 }
 </script>
 

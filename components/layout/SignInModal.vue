@@ -21,11 +21,12 @@ export default {
     },
     async signIn() {
       try {
-        const { data } = await this.$auth.loginWith('local', {
+        await this.$auth.loginWith('local', {
           data: this.form,
         })
-        console.log(data)
+
         this.$toast.success('Successfully signed in!')
+        this.$router.push('/admin')
       } catch (e) {
         this.$toast.error(this.$extractError(e))
       }
