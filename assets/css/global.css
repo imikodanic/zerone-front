@@ -1,0 +1,32 @@
+* {
+  font-family: Inter, Arial, sans-serif;
+  @apply text-primary-black;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: #f5f5f5;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #6c5ce7;
+}
+
+/*Remove blue highlight when tapping on mobile*/
+input,
+textarea,
+button,
+select,
+a,
+svg,
+img {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+button {
+  @apply focus:outline-none;
+}

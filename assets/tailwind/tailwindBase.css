@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+
+@layer base {
+  /* Custom classes */
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(38, 50, 56, 0.16),
+      0 4px 8px rgba(38, 50, 56, 0.08);
+  }
+  .word-break {
+    word-break: break-word;
+  }
+}
