@@ -14,6 +14,11 @@ export default {
     link: [{ rel: 'icon', href: '/logos/logo.svg' }],
   },
 
+  server: {
+    host: process.env.HOST,
+    port: process.env.PORT,
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['~/assets/tailwind/tailwindBase.css', '~/assets/css/global.css'],
 
