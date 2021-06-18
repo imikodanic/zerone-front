@@ -38,15 +38,10 @@ export default {
 <template>
   <t-modal :value="value" width="max-w-3xl" @close="closeModal">
     <div class="w-full">
-      <div class="pb-12 pt-5 flex justify-center lg:justify-start lg:px-12">
+      <div class="pt-5 sm:pt-10 pb-4 flex justify-center">
         <img src="/logos/logo-horizontal.svg" alt="Logo" />
       </div>
       <div class="px-12 sm:px-24 md:px-48 lg:px-12 xl:px-24 xl:max-w-2xl">
-        <h2
-          class="text-center text-indigo-900 text-3xl font-display font-semibold lg:text-left xl:text-4xl xl:text-bold"
-        >
-          Sign in
-        </h2>
         <div class="my-12">
           <form>
             <div>
@@ -55,7 +50,7 @@ export default {
                 v-model="form.email"
                 class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
                 type="email"
-                placeholder="ihorvat@gmail.com"
+                placeholder="Enter your e-mail address"
               />
             </div>
             <div class="mt-8">
@@ -78,13 +73,10 @@ export default {
                 placeholder="Enter your password"
               />
             </div>
-            <div class="mt-10">
-              <!--              <button-->
-              <!--                class="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600 shadow-lg"-->
-              <!--              >-->
-              <!--                Log In-->
-              <!--              </button>-->
-              <t-button class="py-4 text-xl" @click="signIn">Sign in</t-button>
+            <div class="mt-10 sm:w-1/2 mx-auto">
+              <t-button class="py-2.5 sm:py-3 text-xl" @click="signIn">
+                Sign in
+              </t-button>
             </div>
           </form>
           <!--          <div-->

@@ -22,6 +22,8 @@ export default {
   },
   computed: {
     customClass() {
+      if (!this.width) return null
+
       return `sm:${this.width}`
     },
   },
@@ -57,7 +59,7 @@ export default {
         >&#8203;</span
       >
       <div
-        class="modal-wrapper inline-block align-bottom bg-white text-left overflow-hidden shadow-xl transform transition-all h-screen sm:my-8 sm:align-middle sm:h-full sm:rounded-lg"
+        class="modal-wrapper inline-block align-bottom bg-white text-left overflow-hidden shadow-xl transform transition-all h-screen sm:my-8 sm:align-middle sm:h-full sm:rounded-lg sm:max-w-3xl"
         :class="customClass"
       >
         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
