@@ -11,7 +11,7 @@ export default {
     return {
       navbarItems: [
         { title: 'Projects', to: '/projects' },
-        { title: 'Groups', to: '/groups' },
+        { title: 'News', to: '/news' },
         { title: 'What we do', to: '/what-we-do' },
         { title: 'About us', to: '/about' },
       ],

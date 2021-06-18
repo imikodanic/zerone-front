@@ -24,7 +24,7 @@ export default {
 
 <template>
   <div class="projects-container">
-    <h1 class="text-4xl font-bold mt-14">All projects</h1>
+    <h1 class="text-4xl font-bold pt-14">All projects</h1>
     <p class="text-2xl mt-4">
       These are all projects in our database from which you can get
       <span class="text-primary-purple font-bold">all the information</span>.

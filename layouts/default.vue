@@ -22,18 +22,18 @@ export default {
 
 <style scoped>
 .min-h-page {
-  min-height: calc(100vh - 344px - 96px);
+  min-height: calc(100vh - 288px - 96px);
 }
 
 @media screen and (max-width: 1024px) {
   .min-h-page {
-    min-height: calc(100vh - 328px - 96px);
+    min-height: calc(100vh - 288px - 80px);
   }
 }
 
 @media screen and (max-width: 640px) {
   .min-h-page {
-    min-height: calc(100vh - 464px - 80px);
+    min-height: calc(100vh - 408px - 80px);
   }
 }
 </style>
