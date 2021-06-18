@@ -1,11 +1,3 @@
-<template>
-  <div class="px-5 lg:px-32">
-    <introduction-section />
-    <featured-section :featured-projects="featuredProjects" />
-    <groups-section :project-groups="projectGroups" />
-  </div>
-</template>
-
 <script>
 import IntroductionSection from '@/components/pages/landing-page/introduction-section/IntroductionSection'
 import FeaturedSection from '@/components/pages/landing-page/featured-section/FeaturedSection'
@@ -42,3 +34,25 @@ export default {
   },
 }
 </script>
+
+<template>
+  <div class="px-5 lg:px-32 landing-page">
+    <introduction-section />
+    <featured-section :featured-projects="featuredProjects" />
+    <groups-section :project-groups="projectGroups" />
+  </div>
+</template>
+
+<style scoped>
+.landing-page {
+  background-image: url('/pages/landing-page/section-1/bg-section-1.svg');
+  @apply bg-contain;
+  @apply bg-no-repeat;
+}
+
+@media screen and (max-width: 640px) {
+  .landing-page {
+    background-image: url('~/static/pages/landing-page/section-1/bg-section-1-mobile.svg');
+  }
+}
+</style>

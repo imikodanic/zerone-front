@@ -7,7 +7,7 @@ export default {
 <template>
   <div class="footer_container h-full sm:h-52 mt-20">
     <div
-      class="px-5 lg:px-32 flex justify-between flex-col items-center sm:flex-row"
+      class="px-5 lg:px-32 flex justify-between flex-col items-center sm:items-start sm:flex-row"
     >
       <div class="pb-10 sm:pb-0">
         <h6
@@ -64,9 +64,12 @@ export default {
         >
           Contact us
         </h6>
-        <h2 class="text-primary-purple text-3xl font-bold">
+        <a
+          href="mailto:zerone@elpros.net"
+          class="text-primary-purple text-3xl font-bold"
+        >
           zerone@elpros.net
-        </h2>
+        </a>
       </div>
     </div>
   </div>

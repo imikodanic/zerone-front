@@ -111,7 +111,7 @@ export default {
           </nuxt-link>
         </div>
         <div></div>
-        <div class="px-10 mb-10">
+        <div class="px-10 mb-20">
           <button
             class="bg-primary-purple text-2xl font-bold w-full px-8 py-3 rounded-lg hover:bg-secondary-purple transition-colors"
             @click="openSignIn"

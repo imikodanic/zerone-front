@@ -67,7 +67,7 @@ export default {
       </div>
       <t-button
         class="mt-2 md:mt-0"
-        @click="$router.push('/groups/etwinning-projects')"
+        @click="$router.push('/group/etwinning-projects')"
       >
         Open
       </t-button>

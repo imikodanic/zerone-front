@@ -46,7 +46,7 @@ export default {
     <nuxt-link
       v-if="!pages.length"
       :to="pagePath"
-      class="text-lg font-medium group"
+      class="text-xl sm:text-lg font-medium group"
       @click.native="closeMenu"
     >
       <span
@@ -77,7 +77,7 @@ export default {
       </div>
       <nuxt-link
         :to="pagePath"
-        class="text-lg font-medium ml-1"
+        class="text-xl sm:text-lg font-medium ml-1"
         @click.native="closeMenu"
       >
         {{ page.title }}

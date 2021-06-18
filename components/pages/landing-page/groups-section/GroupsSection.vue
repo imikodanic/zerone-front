@@ -25,7 +25,7 @@ export default {
       <div
         v-for="group in projectGroups"
         :key="`group-${group.title}`"
-        class="w-full md:w-1/2 p-8"
+        class="w-full md:w-1/2 py-8 sm:px-8"
       >
         <group-card :group="group" />
       </div>

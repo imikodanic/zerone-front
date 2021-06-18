@@ -26,7 +26,7 @@ export default {
         >
           {{ group.description }}
         </p>
-        <nuxt-link :to="`/groups/${group.id}`">
+        <nuxt-link :to="`/group/${group.id}`">
           <t-button class="mt-4 px-12 py-2 md:w-auto hidden 2xl:block">
             Open
           </t-button>
@@ -42,7 +42,7 @@ export default {
       </div>
     </div>
     <!-- Full width button (hidden on 2xl screen) -->
-    <nuxt-link :to="`/groups/${group.id}`">
+    <nuxt-link :to="`/group/${group.id}`">
       <t-button class="mt-8 px-12 py-2 block w-full 2xl:hidden">
         Open
       </t-button>
