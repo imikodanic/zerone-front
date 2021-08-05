@@ -1,5 +1,6 @@
 module.exports = {
   purge: [],
+  important: true,
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -32,5 +33,5 @@ module.exports = {
       display: ['last'],
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }

@@ -27,6 +27,7 @@ export default {
     '~/plugins/globalComponents.js',
     '~/plugins/axios.js',
     '~/plugins/globalMixin.js',
+    '~/plugins/vuelidate.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

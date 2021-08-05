@@ -1,11 +1,6 @@
 <script>
-import CloseIcon from '~/static/icons/icon-x.svg?inline'
-
 export default {
   name: 'TModal',
-  components: {
-    CloseIcon,
-  },
   props: {
     value: {
       type: Boolean,
@@ -64,7 +59,11 @@ export default {
       >
         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
           <div class="flex justify-end">
-            <close-icon class="w-14 h-14 cursor-pointer" @click="close" />
+            <custom-icon
+              icon="icon-x"
+              class="w-14 h-14 cursor-pointer"
+              @click="close"
+            />
           </div>
           <slot name="default" />
         </div>

@@ -11,7 +11,7 @@ export default {
   <div>
     <div class="flex">
       <sidebar class="flex-shrink-0 flex-grow-0" />
-      <Nuxt class="flex-grow" />
+      <Nuxt class="flex-grow px-10 pt-20" />
     </div>
   </div>
 </template>
