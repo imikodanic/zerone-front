@@ -27,9 +27,10 @@ export default {
 <template>
   <div>
     <t-data-display
-      title="Groups"
+      title="Projects"
       api-url="/admin/projects"
       :headers="headers"
+      project-crud
     />
   </div>
 </template>

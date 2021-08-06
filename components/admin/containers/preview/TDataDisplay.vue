@@ -74,6 +74,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    projectCrud: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -198,6 +202,7 @@ export default {
       :hide-edit="hideEdit"
       :hide-delete="hideDelete"
       :order.sync="order"
+      :project-crud="projectCrud"
       :multiple-selection="multipleSelection"
       :single-selection="singleSelection"
       :selected-items="selectedItems"

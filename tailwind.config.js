@@ -31,6 +31,7 @@ module.exports = {
   variants: {
     extend: {
       display: ['last'],
+      visibility: ['hover', 'focus'],
     },
   },
   plugins: [require('@tailwindcss/forms')],

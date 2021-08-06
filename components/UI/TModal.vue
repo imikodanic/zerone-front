@@ -62,7 +62,7 @@ export default {
             <custom-icon
               icon="icon-x"
               class="w-14 h-14 cursor-pointer"
-              @click="close"
+              @click.native="close"
             />
           </div>
           <slot name="default" />

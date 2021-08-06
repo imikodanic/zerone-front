@@ -47,6 +47,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    projectCrud: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -88,7 +92,8 @@ export default {
       const { path } = this.$route
       const fullPath = path[path.length - 1] === '/' ? path : `${path}/`
 
-      this.$router.push(`${fullPath}${item.id}/edit`)
+      if (this.projectCrud) window.open(`${fullPath}${item.id}`)
+      else this.$router.push(`${fullPath}${item.id}/edit`)
     },
     async deleteItem(item) {
       const isConfirmed = confirm('Are you sure you want to delete this item?')

@@ -17,6 +17,10 @@
   background-color: #6c5ce7;
 }
 
+* {
+  word-break: break-word;
+}
+
 /*Remove blue highlight when tapping on mobile*/
 input,
 textarea,
@@ -29,4 +33,15 @@ img {
 }
 button {
   @apply focus:outline-none;
+}
+
+/* Hide tinymce warnings */
+.tox .tox-silver-sink .tox-tinymce-aux {
+  display: none;
+}
+.tox-notification .tox-notification--in .tox-notification--warning {
+  display: none;
+}
+.tox-notifications-container {
+  display: none;
 }
