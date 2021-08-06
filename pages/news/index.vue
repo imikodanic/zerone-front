@@ -37,7 +37,7 @@ export default {
           slug: 'math-in-media',
         },
         {
-          title: 'Inshallah',
+          title: 'Elpros',
           description:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto\n' +
             '            accusantium praesentium eius, ut atque fuga culpa, similique sequi\n' +
@@ -56,6 +56,16 @@ export default {
           date: 'Mar 15, 2020',
           slug: 'lorem-ipsum',
         },
+        {
+          title: 'Lorem Ipsum',
+          description:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto\n' +
+            '            accusantium praesentium eius, ut atque fuga culpa, similique sequi\n' +
+            '            cum eos quis dolorum.',
+          author: 'Robert Vranješ',
+          date: 'Mar 15, 2020',
+          slug: 'lorem-ipsum',
+        },
       ],
     }
   },
@@ -63,13 +73,13 @@ export default {
 </script>
 
 <template>
-  <div class="flex flex-wrap gap-20 justify-between items-center">
+  <div class="flex flex-wrap justify-center items-center">
     <br />
     <news-card
       v-for="item in news"
       :key="item.id"
       :news="item"
-      class="w-full md:w-1/2"
+      class="w-full"
     />
   </div>
 </template>

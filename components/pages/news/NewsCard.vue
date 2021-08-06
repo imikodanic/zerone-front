@@ -14,7 +14,7 @@ export default {
   <nuxt-link :to="`/news/${news.slug}`" class="max-w-3xl">
     <br />
     <br />
-    <div class="m-auto">
+    <div class="mx-5">
       <div
         class="grid grid-cols-3 grid-rows-7 grid-flow-row overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out"
       >
