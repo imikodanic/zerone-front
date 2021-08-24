@@ -9,7 +9,7 @@ export default {
     <div class="introduction-section -mx-5 lg:-mx-32" style="height: 1300px">
       <div class="pt-20 text-center">
         <h1 class="text-7xl sm:text-8xl font-extrabold keyword-highlight">
-          One
+          {{ $t('page.index.title1') }}
           <span class="relative">
             <span class="text-6xl sm:text-8xl text-primary-red block sm:inline">
               project

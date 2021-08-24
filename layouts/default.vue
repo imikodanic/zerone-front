@@ -7,6 +7,29 @@ export default {
     Navbar,
     DefaultFooter,
   },
+  created() {
+    this.setLanguageOnLoad()
+  },
+  methods: {
+    setLanguageOnLoad() {
+      const routeName = this.$route.name?.split('___')
+
+      // get locale from the route name... if user edits locale slug in the URL manually
+      const routeLocale = routeName ? routeName[routeName.length - 1] : 'hr'
+      const cookieLocale = this.$cookies.get('FVRS_Locale')
+
+      // if someone sends a user a link where its domain.com/en it should use the "en" locale
+      // but it mustn't save it to cookie because user didn't set the language on purpose
+
+      // if someone sends you a link where its domain.com then it should use a locale defined in the cookie "FVRS_Locale"
+      const slug = routeLocale === 'default' ? cookieLocale : routeLocale
+
+      this.$store.dispatch('language/setLanguage', {
+        slug,
+        saveCookie: false,
+      })
+    },
+  },
 }
 </script>
 

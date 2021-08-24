@@ -55,6 +55,10 @@ export default {
     '@nuxtjs/toast',
     // https://auth.nuxtjs.org/guide/setup
     '@nuxtjs/auth-next',
+    // https://www.npmjs.com/package/cookie-universal-nuxt
+    'cookie-universal-nuxt',
+    // https://i18n.nuxtjs.org/setup
+    '@nuxtjs/i18n',
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -103,5 +107,20 @@ export default {
         },
       },
     },
+  },
+
+  i18n: {
+    defaultLocale: 'hr',
+    strategy: 'prefix_and_default',
+    langDir: 'locales/',
+    lazy: true,
+    parsePages: true,
+    vueI18n: {
+      fallbackLocale: 'hr',
+    },
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en.json' },
+      { code: 'hr', iso: 'hr', file: 'hr.json' },
+    ],
   },
 }

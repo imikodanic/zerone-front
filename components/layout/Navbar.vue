@@ -19,6 +19,13 @@ export default {
       signInModal: false,
     }
   },
+  computed: {
+    inactiveLanguage() {
+      return this.$store.state.language.activeLanguage === 'hr'
+        ? 'English'
+        : 'Hrvatski'
+    },
+  },
   methods: {
     toggleMenu() {
       this.openedMenu = !this.openedMenu
@@ -26,6 +33,11 @@ export default {
     openSignIn() {
       this.signInModal = true
       this.openedMenu = false
+    },
+    switchLanguage() {
+      const { state, dispatch } = this.$store
+      const slug = state.language.activeLanguage === 'hr' ? 'en' : 'hr'
+      dispatch('language/setLanguage', { slug })
     },
   },
 }
@@ -61,6 +73,7 @@ export default {
           </div>
         </div>
         <div>
+          <div @click="switchLanguage">{{ inactiveLanguage }}</div>
           <t-button class="px-12 py-4 text-2xl" @click="openSignIn">
             Sign in
           </t-button>
