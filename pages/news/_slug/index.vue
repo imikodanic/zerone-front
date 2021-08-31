@@ -55,25 +55,25 @@
         href=""
         class="border-2 rounded-3xl border-primary-yellow font-bold text-primary-yellow px-4 py-3 transition duration-300 ease-in-out hover:bg-primary-yellow hover:text-white mr-6"
       >
-        School
+        {{ $t('page.news.tags.school') }}
       </a>
       <a
         href=""
         class="border-2 rounded-3xl border-primary-yellow font-bold text-primary-yellow px-4 py-3 transition duration-300 ease-in-out hover:bg-primary-yellow hover:text-white mr-6"
       >
-        Travel
+        {{ $t('page.news.tags.travel') }}
       </a>
       <a
         href=""
         class="border-2 rounded-3xl border-primary-yellow font-bold text-primary-yellow px-4 py-3 transition duration-300 ease-in-out hover:bg-primary-yellow hover:text-white mr-6"
       >
-        Math
+        {{ $t('page.news.tags.math') }}
       </a>
       <a
         href=""
         class="border-2 rounded-3xl border-primary-yellow font-bold text-primary-yellow px-4 py-3 transition duration-300 ease-in-out hover:bg-primary-yellow hover:text-white mr-6"
       >
-        English
+        {{ $t('page.news.tags.english') }}
       </a>
     </div>
   </div>

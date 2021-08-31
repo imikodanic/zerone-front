@@ -12,7 +12,7 @@ export default {
           {{ $t('page.index.title1') }}
           <span class="relative">
             <span class="text-6xl sm:text-8xl text-primary-red block sm:inline">
-              project
+              {{ $t('page.index.title2') }}
             </span>
 
             <!--            <span-->
@@ -20,7 +20,9 @@ export default {
             <!--            ></span>-->
           </span>
         </h1>
-        <h2 class="text-2xl sm:text-6xl font-black mt-5">To rule them all</h2>
+        <h2 class="text-2xl sm:text-6xl font-black mt-5">
+          {{ $t('page.index.title3') }}
+        </h2>
       </div>
     </div>
   </div>

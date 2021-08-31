@@ -1,6 +1,8 @@
 <template>
   <div class="pt-10 px-5 sm:w-1/2 mx-auto">
-    <h1 class="text-5xl sm:text-6xl text-center">What we do</h1>
+    <h1 class="text-5xl sm:text-6xl text-center">
+      {{ $t('page.whatwedo.title') }}
+    </h1>
     <div class="text-lg mt-10">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel quam
       lacinia urna tempor fermentum. Morbi velit turpis, accumsan sed purus

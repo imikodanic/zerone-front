@@ -13,7 +13,7 @@ export default {
         <h6
           class="uppercase text-sm font-bold text-grayscale-gray-light section_title pb-2 text-center sm:text-left"
         >
-          Follow us
+          {{ $t('footer.follow') }}
         </h6>
         <a href="http://elpros.net/" target="_blank">
           <img
@@ -47,22 +47,28 @@ export default {
         <h6
           class="uppercase text-sm font-bold text-grayscale-gray-light section_title pb-2 text-center sm:text-left"
         >
-          Information
+          {{ $t('footer.information.title') }}
         </h6>
-        <nuxt-link to="/about" class="mr-20"> About Zerone</nuxt-link>
-        <nuxt-link to="/creators">Creators</nuxt-link>
+        <nuxt-link to="/about" class="mr-20">
+          {{ $t('footer.information.about') }}</nuxt-link
+        >
+        <nuxt-link to="/creators">{{
+          $t('footer.information.creators')
+        }}</nuxt-link>
         <br />
         <nuxt-link to="/terms-of-service" class="mr-14">
-          Terms of Service
+          {{ $t('footer.information.tos') }}
         </nuxt-link>
-        <nuxt-link to="/privacy-policy">Privacy Policy</nuxt-link>
+        <nuxt-link to="/privacy-policy">{{
+          $t('footer.information.privacy')
+        }}</nuxt-link>
       </div>
 
       <div class="pb-10 sm:pb-0">
         <h6
           class="uppercase text-sm font-bold text-grayscale-gray-light section_title pb-2 text-center sm:text-left"
         >
-          Contact us
+          {{ $t('footer.contact') }}
         </h6>
         <a
           href="mailto:zerone@elpros.net"

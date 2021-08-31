@@ -1,7 +1,48 @@
 {
   "page": {
     "index": {
-      "title1": "Jedan"
+      "title1": "Jedan",
+      "title2": "Projekt",
+      "title3": "da vlada svima",
+      "projects": "Svi projekti su organizirani u grupe",
+      "projectsdesc": "Projekti su organizirani u grupama kako biste se lakše navigirali i brže naučili o stvarima koje vas zanimaju",
+      "featured": "Istaknuti projekti"
+    },
+    "projects": {
+      "title": "Svi projekti",
+      "description1": "Ovo su svi projekti u našoj bazi podataka iz kojih možete",
+      "description2": "dobiti sve informacije"
+    },
+    "whatwedo": {
+      "title": "Što mi radimo"
+    },
+    "aboutus": {
+      "title": "O nama"
+    },
+    "news": {
+      "tags": {
+        "school": "Škola",
+        "travel": "Putovanja",
+        "math": "Matematika",
+        "english": "Engleski"
+      }
     }
+  },
+  "footer": {
+    "follow": "Zapratite nas",
+    "information": {
+      "title": "Informacije",
+      "about": "O Zeroneu",
+      "creators": "Autori",
+      "tos": "Uvjeti usluge",
+      "privacy": "Politika privatnosti"
+    },
+    "contact": "Kontaktirajte nas"
+  },
+  "navbar": {
+    "signin": "Prijava"
+  },
+  "newscard": {
+    "type": "Artikl"
   }
 }

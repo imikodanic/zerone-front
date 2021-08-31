@@ -1,7 +1,48 @@
 {
   "page": {
     "index": {
-      "title1": "One"
+      "title1": "One",
+      "title2": "project",
+      "title3": "to rule them all",
+      "projects": "All projects are organized into groups",
+      "projectsdesc": "We organized all of our projects in separate groups so you can easily navigate and learn faster about things you’re interested in.",
+      "featured": "Featured projects"
+    },
+    "projects": {
+      "title": "All projects",
+      "description1": "These are all projects in our database from which you can get",
+      "description2": "all the information"
+    },
+    "whatwedo": {
+      "title": "What we do"
+    },
+    "aboutus": {
+      "title": "About us"
+    },
+    "news": {
+      "tags": {
+        "school": "School",
+        "travel": "Travel",
+        "math": "Math",
+        "english": "English"
+      }
     }
+  },
+  "footer": {
+    "follow": "Follow us",
+    "information": {
+      "title": "Information",
+      "about": "About Zerone",
+      "creators": "Creators",
+      "tos": "Terms of Service",
+      "privacy": "Privacy Policy"
+    },
+    "contact": "Contact us"
+  },
+  "navbar": {
+    "signin": "Sign in"
+  },
+  "newscard": {
+    "type": "Article"
   }
 }

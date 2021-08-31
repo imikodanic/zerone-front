@@ -29,7 +29,7 @@ export default {
         </div>
 
         <div class="ml-4 mt-4">
-          <p class="text-blue-700 font-medium">Article</p>
+          <p class="text-blue-700 font-medium">{{ $t('newscard.type') }}</p>
         </div>
 
         <div class="col-span-3 row-span-1">

@@ -75,7 +75,7 @@ export default {
         <div>
           <div @click="switchLanguage">{{ inactiveLanguage }}</div>
           <t-button class="px-12 py-4 text-2xl" @click="openSignIn">
-            Sign in
+            {{ $t('navbar.signin') }}
           </t-button>
         </div>
       </div>
