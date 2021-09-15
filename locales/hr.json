@@ -17,7 +17,8 @@
       "title": "Što mi radimo"
     },
     "aboutus": {
-      "title": "O nama"
+      "title": "O nama",
+      "content": "Mi smo Ivan, Robert i Viktor. Mi smo tri srednjoškolca koji vole izrađivati internetske stranice i računalne aplikacije. Trenutno smo 4. razred i planiramo nastaviti nadograđivati naše znanje u računarstvu.Vjerujemo da je kroz dobre radne navike i organizaciju sve moguće.U budućnosti vjerujemo da ćemo postići mnoštvo dobrih stvari i da ćemo nastaviti izrađivati zanimljive, zabavne i korisne internetske stranice za mnoštvo ljudi."
     },
     "news": {
       "tags": {
@@ -40,7 +41,11 @@
     "contact": "Kontaktirajte nas"
   },
   "navbar": {
-    "signin": "Prijava"
+    "signin": "Prijava",
+    "projects": "Projekti",
+    "news": "Novosti",
+    "creators": "Autori",
+    "aboutus": "O nama"
   },
   "newscard": {
     "type": "Artikl"

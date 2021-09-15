@@ -17,7 +17,8 @@
       "title": "What we do"
     },
     "aboutus": {
-      "title": "About us"
+      "title": "About us",
+      "content": "We are Ivan, Robert and Viktor. We are three highscool students who love to make web pages and computer applications. We are currently on our senior year and we plan to keep furthering our knowledge in all aspects of our field. We believe that through a good work ethic and organization you can achieve anything.In the future we believe that we will achieve many more great things and make web pages that will be interesting, fun and useful to many people."
     },
     "news": {
       "tags": {
@@ -40,7 +41,11 @@
     "contact": "Contact us"
   },
   "navbar": {
-    "signin": "Sign in"
+    "signin": "Sign in",
+    "projects": "Projects",
+    "news": "News",
+    "creators": "Creators",
+    "aboutus": "About us"
   },
   "newscard": {
     "type": "Article"

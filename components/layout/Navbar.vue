@@ -9,12 +9,6 @@ export default {
   components: { LogoHorizontal, MenuIcon, CloseIcon, SignInModal },
   data() {
     return {
-      navbarItems: [
-        { title: 'Projects', to: '/projects' },
-        { title: 'News', to: '/news' },
-        { title: 'What we do', to: '/what-we-do' },
-        { title: 'About us', to: '/about' },
-      ],
       openedMenu: false,
       signInModal: false,
     }
@@ -24,6 +18,14 @@ export default {
       return this.$store.state.language.activeLanguage === 'hr'
         ? 'English'
         : 'Hrvatski'
+    },
+    navbarItems() {
+      return [
+        { title: this.$t('navbar.projects'), to: '/projects' },
+        { title: this.$t('navbar.news'), to: '/news' },
+        { title: this.$t('navbar.creators'), to: '/creators2' },
+        { title: this.$t('navbar.aboutus'), to: '/about' },
+      ]
     },
   },
   methods: {
