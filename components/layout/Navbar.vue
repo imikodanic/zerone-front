@@ -136,6 +136,7 @@ export default {
           >
             {{ item.title }}
           </nuxt-link>
+          <language-icon class="max-h-14" @click="switchLanguage" />
         </div>
         <div></div>
         <div class="px-10 mb-20">

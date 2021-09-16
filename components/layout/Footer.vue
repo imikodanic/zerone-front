@@ -52,7 +52,7 @@ export default {
         <nuxt-link to="/about" class="mr-20">
           {{ $t('footer.information.about') }}</nuxt-link
         >
-        <nuxt-link to="/creators">{{
+        <nuxt-link to="/creators2">{{
           $t('footer.information.creators')
         }}</nuxt-link>
         <br />
