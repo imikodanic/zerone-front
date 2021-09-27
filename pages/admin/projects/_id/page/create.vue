@@ -24,9 +24,9 @@ export default {
   <div>
     <t-input id="page-title" v-model="value.title" label="Title" class="mb-3" />
     <t-checkbox
+      id="page-visible"
       v-model="value.is_visible"
       label="Is visible"
-      id="page-visible"
       class="mb-3"
     />
     <editor

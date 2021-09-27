@@ -3,8 +3,8 @@ import validatorMixin from '@/plugins/validatorMixin'
 import ErrorMessage from '@/components/admin/UI/ErrorMessage'
 export default {
   name: 'TTextArea',
-  mixins: [validatorMixin],
   components: { ErrorMessage },
+  mixins: [validatorMixin],
   props: {
     id: {
       type: String,

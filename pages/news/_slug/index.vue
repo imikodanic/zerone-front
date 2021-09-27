@@ -33,7 +33,7 @@
     </div>
     <div class="flex justify-center">
       <div class="max-w-3xl">
-        <div v-html="description" class="mt-8 my-14 text-lg"></div>
+        <div class="mt-8 my-14 text-lg" v-html="description"></div>
       </div>
     </div>
 
@@ -47,7 +47,7 @@
 
     <div class="flex justify-center w-full">
       <div class="max-w-3xl">
-        <div v-html="descriptiontwo" class="mt-8 mb-12 text-lg"></div>
+        <div class="mt-8 mb-12 text-lg" v-html="descriptiontwo"></div>
       </div>
     </div>
     <div class="mt-5 flex justify-center">
