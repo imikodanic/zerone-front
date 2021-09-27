@@ -30,6 +30,7 @@ export default {
       title="Groups"
       api-url="/admin/project-groups"
       :headers="headers"
+      fetch-delay="500"
     />
   </div>
 </template>
