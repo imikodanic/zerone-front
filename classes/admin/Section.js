@@ -1,16 +1,19 @@
 class Section {
   constructor(props) {
-    this.id = props.id || 0
-    if (!props.id) this._key = Date.now()
+    if (props.id) {
+      this.id = props.id || 0
+    } else {
+      this._key = Date.now()
+    }
     this.type = props.type
     this.value = props.value
     this.page_id = props.page_id
   }
 
-  static toJSON() {
+  static toJSON(section) {
     const keys = ['id', 'type', 'value', 'page_id']
     const JSON = {}
-    keys.forEach((key) => (JSON[key] = this[key]))
+    keys.forEach((key) => (JSON[key] = section[key]))
     return JSON
   }
 }

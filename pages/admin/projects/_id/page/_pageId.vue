@@ -52,7 +52,7 @@ export default {
         value: '',
         page_id: this.$route.params.pageId,
       })
-      this.value.sections.push(newSection)
+      this.sectionsCopy.push(newSection)
     },
     addTextSection() {
       this.addSection(SectionType.HTML)
@@ -61,18 +61,28 @@ export default {
       this.addSection(SectionType.Video)
     },
     async saveContent() {
-      const promise = new Promise((resolve, reject) => {
-        console.log('sad kao sejva na back')
-        resolve(
-          {
-            ...this.value,
-            sections: this.sectionsCopy,
-          } /* vrati nove podatke */
-        )
+      // await this.save()
+      // return
+      const sections = this.sectionsCopy.map(Section.toJSON)
+      const { data } = await this.$axios.patch(`admin/pages/${this.value.id}`, {
+        ...this.value,
+        sections,
       })
+
+      this.$emit('save-page', data.data)
+      this.$toast.success('Page successfully edited!')
+      // const promise = new Promise((resolve, reject) => {
+      //   console.log('sad kao sejva na back')
+      //   resolve(
+      //     {
+      //       ...this.value,
+      //       sections: this.sectionsCopy,
+      /* vrati nove podatke */
+      // )
+      // })
       // todo: pripaziti na reaktivnost
-      this.value = await promise
-      this.toggleIsContentEditable(false)
+      // this.value = await promise
+      // this.toggleIsContentEditable(false)
     },
   },
 }

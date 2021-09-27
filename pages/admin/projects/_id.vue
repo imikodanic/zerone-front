@@ -1,19 +1,18 @@
 <script>
 import ProjectSidebarAdmin from '@/components/admin/project/ProjectSidebarAdmin'
-import SectionType from '~/enums/SectionType'
+import Vue from 'vue'
+import ProjectService from '~/services/ProjectService'
+import doServiceYo from '~/plugins/doServiceYo'
+Vue.use(doServiceYo)
 export default {
   components: { ProjectSidebarAdmin },
+  services: { ProjectService },
   layout: 'project',
-  async asyncData({ $axios, params }) {
-    try {
-      const { id } = params
-
-      const { data } = await $axios.get(`/admin/projects/${id}`)
-
-      const project = data.data
-
-      return { project }
-    } catch {}
+  async asyncData({ $axios, params, error }) {
+    const projectService = ProjectService.use({ $axios })
+    const project = await projectService.get(params.id)
+    if (project.hasErrored) return error(project)
+    return project
   },
   data() {
     return {
@@ -24,51 +23,7 @@ export default {
     pages() {
       const { pages } = this.project
 
-      if (!pages)
-        return [
-          {
-            id: 2,
-            resourceType: 'page',
-            title: 'blesavi pagee',
-            is_visible: 1,
-            is_public: 0,
-            created_at: 1632755772000,
-            updated_at: 1632755772000,
-            project: {
-              id: 2,
-              resourceType: 'project',
-              title: 'Ivan projekt test v1',
-              description: 'Ovo Ivan testira kreiranje projekta na backu',
-              is_visible: 1,
-              project_group_id: 1,
-              image: null,
-              created_at: 1632754941000,
-              updated_at: 1632754941000,
-            },
-            parent: null,
-            sections: [
-              {
-                id: 3,
-                type: SectionType.HTML,
-                value: '<h1> Ivan test sectiooon</h1>',
-                order: 1,
-                page_id: 2,
-                created_at: 1632756004000,
-                updated_at: 1632756004000,
-              },
-              {
-                id: 4,
-                type: SectionType.Video,
-                value:
-                  '<iframe width="560" height="315" src="https://www.youtube.com/embed/Wv-1z71umlI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
-                order: 1,
-                page_id: 2,
-                created_at: 1632756004000,
-                updated_at: 1632756004000,
-              },
-            ],
-          },
-        ]
+      if (!pages) return []
 
       // first add only parents with empty child page array
       const structuredPages = pages
@@ -96,9 +51,7 @@ export default {
     async refreshProject() {
       const { id } = this.$route.params
 
-      const { data } = await this.$axios.get(`/admin/projects/${id}`)
-
-      this.project = data.data
+      this.project = await this.$services.project.get(id)
     },
     async createPage(value) {
       const { data } = await this.$axios.$post('/admin/pages', {
