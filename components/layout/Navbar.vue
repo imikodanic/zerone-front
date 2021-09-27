@@ -3,10 +3,17 @@ import SignInModal from '@/components/layout/SignInModal'
 import LogoHorizontal from '~/static/logos/logo-horizontal.svg?inline'
 import MenuIcon from '~/static/pages/landing-page/menu-icon.svg?inline'
 import CloseIcon from '~/static/pages/landing-page/close-icon.svg?inline'
+import LanguageIcon from '~/static/pages/landing-page/language-icon.svg?inline'
 
 export default {
   name: 'Navbar',
-  components: { LogoHorizontal, MenuIcon, CloseIcon, SignInModal },
+  components: {
+    LogoHorizontal,
+    MenuIcon,
+    CloseIcon,
+    SignInModal,
+    LanguageIcon,
+  },
   data() {
     return {
       openedMenu: false,
@@ -74,11 +81,16 @@ export default {
             </span>
           </div>
         </div>
-        <div>
-          <div @click="switchLanguage">{{ inactiveLanguage }}</div>
-          <t-button class="px-12 py-4 text-2xl" @click="openSignIn">
-            {{ $t('navbar.signin') }}
-          </t-button>
+        <div class="flex gap-4 items-center cursor-pointer">
+          <language-icon class="max-h-14" @click="switchLanguage" />
+          <div class="flex-shrink-0">
+            <t-button
+              class="px-12 py-4 text-2xl flex-grow-0"
+              @click="openSignIn"
+            >
+              {{ $t('navbar.signin') }}
+            </t-button>
+          </div>
         </div>
       </div>
       <!-- MOBILE -->
@@ -124,6 +136,7 @@ export default {
           >
             {{ item.title }}
           </nuxt-link>
+          <language-icon class="max-h-14" @click="switchLanguage" />
         </div>
         <div></div>
         <div class="px-10 mb-20">
