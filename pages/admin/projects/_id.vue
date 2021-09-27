@@ -23,7 +23,51 @@ export default {
     pages() {
       const { pages } = this.project
 
-      if (!pages) return []
+      if (!pages)
+        return [
+          {
+            id: 2,
+            resourceType: 'page',
+            title: 'blesavi pagee',
+            is_visible: 1,
+            is_public: 0,
+            created_at: 1632755772000,
+            updated_at: 1632755772000,
+            project: {
+              id: 2,
+              resourceType: 'project',
+              title: 'Ivan projekt test v1',
+              description: 'Ovo Ivan testira kreiranje projekta na backu',
+              is_visible: 1,
+              project_group_id: 1,
+              image: null,
+              created_at: 1632754941000,
+              updated_at: 1632754941000,
+            },
+            parent: null,
+            sections: [
+              {
+                id: 3,
+                type: 'HTML',
+                value: '<h1> Ivan test sectiooon</h1>',
+                order: 1,
+                page_id: 2,
+                created_at: 1632756004000,
+                updated_at: 1632756004000,
+              },
+              {
+                id: 4,
+                type: 'video',
+                value:
+                  '<iframe width="560" height="315" src="https://www.youtube.com/embed/Wv-1z71umlI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+                order: 1,
+                page_id: 2,
+                created_at: 1632756004000,
+                updated_at: 1632756004000,
+              },
+            ],
+          },
+        ]
 
       // first add only parents with empty child page array
       const structuredPages = pages

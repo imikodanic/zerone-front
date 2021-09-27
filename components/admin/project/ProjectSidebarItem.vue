@@ -10,6 +10,10 @@ export default {
   data() {
     return {
       isExpanded: true,
+      editingPageTitleId: 0,
+      editingPageTitle: '',
+      newPageTitle: '',
+      newPageParent: 0,
     }
   },
   computed: {
@@ -58,29 +62,61 @@ export default {
         `/admin/projects/${id}/page/create?parent_id=${this.page.id}`
       )
     },
+    setEditingPageTitle(page) {
+      this.editingPageTitleId = page.id
+      this.editingPageTitle = page.title
+    },
+    saveEditingPageTitle() {
+      console.log(
+        'sejvaj',
+        this.editingPageTitle,
+        'na',
+        this.editingPageTitleId
+      )
+      this.editingPageTitleId = 0
+      this.editingPageTitle = ''
+    },
   },
 }
 </script>
 
 <template>
   <div class="px-5 py-1 truncate">
-    <div v-if="!pages.length" class="inline-flex gap-2 items-center group">
-      <nuxt-link
-        :to="pagePath"
-        class="text-xl sm:text-lg font-medium group inline-flex gap-2 items-center"
-        @click.native="closeMenu"
-      >
-        <span
-          class="w-4 h-4 inline-block rounded-full border-3 border-primary-purple group-hover:bg-white"
-          :class="{
-            'bg-white': isActive,
-            'bg-primary-purple': !isActive,
-          }"
-        ></span>
-
-        {{ page.title }}
-      </nuxt-link>
+    <div
+      v-if="!pages.length"
+      class="inline-flex gap-2 items-center group w-full"
+    >
+      <span
+        class="w-4 h-4 inline-block rounded-full border-3 border-primary-purple group-hover:bg-white"
+        :class="{
+          'bg-white': isActive,
+          'bg-primary-purple': !isActive,
+        }"
+        @click="closeMenu"
+      ></span>
+      <input
+        v-show="editingPageTitleId === page.id"
+        v-model="editingPageTitle"
+        type="text"
+        class="flex-1 min-w-0"
+      />
       <custom-icon
+        v-show="editingPageTitleId === page.id"
+        icon="icon-check"
+        class="w-7 h-7 cursor-pointer"
+        @click.native="saveEditingPageTitle(page)"
+      />
+      <nuxt-link v-show="editingPageTitleId !== page.id" :to="pagePath">{{
+        page.title
+      }}</nuxt-link>
+      <custom-icon
+        v-show="editingPageTitleId !== page.id"
+        icon="icon-edit"
+        class="w-7 h-7 cursor-pointer"
+        @click.native="setEditingPageTitle(page)"
+      />
+      <custom-icon
+        v-show="editingPageTitleId !== page.id"
         icon="icon-x"
         class="w-7 h-7 cursor-pointer"
         @click.native="deletePage"
