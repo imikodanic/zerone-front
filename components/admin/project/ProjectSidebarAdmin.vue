@@ -39,7 +39,8 @@ export default {
         project_id: this.$route.params.id,
         title: this.newPageTitle,
       })
-      console.log(newPage)
+      this.$emit('create-page', newPage)
+      this.isNewPageEditActive = false
     },
   },
 }

@@ -115,7 +115,11 @@ export default {
 
 <template>
   <div class="flex">
-    <project-sidebar-admin :pages="pages" @refresh-project="refreshProject" />
+    <project-sidebar-admin
+      :pages="pages"
+      @refresh-project="refreshProject"
+      @create-page="createPage"
+    />
     <div class="w-full mt-10 lg:ml-72 z-50">
       <h1 class="text-6xl font-light text-center w-full">
         {{ project.title }}
