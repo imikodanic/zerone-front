@@ -1,9 +1,6 @@
 <script>
 import ProjectSidebarAdmin from '@/components/admin/project/ProjectSidebarAdmin'
-import Vue from 'vue'
 import ProjectService from '~/services/ProjectService'
-import doServiceYo from '~/plugins/doServiceYo'
-Vue.use(doServiceYo)
 export default {
   components: { ProjectSidebarAdmin },
   services: { ProjectService },
