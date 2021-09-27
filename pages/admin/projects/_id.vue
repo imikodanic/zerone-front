@@ -1,5 +1,6 @@
 <script>
 import ProjectSidebarAdmin from '@/components/admin/project/ProjectSidebarAdmin'
+import SectionType from '~/enums/SectionType'
 export default {
   components: { ProjectSidebarAdmin },
   layout: 'project',
@@ -48,7 +49,7 @@ export default {
             sections: [
               {
                 id: 3,
-                type: 'HTML',
+                type: SectionType.HTML,
                 value: '<h1> Ivan test sectiooon</h1>',
                 order: 1,
                 page_id: 2,
@@ -57,7 +58,7 @@ export default {
               },
               {
                 id: 4,
-                type: 'video',
+                type: SectionType.Video,
                 value:
                   '<iframe width="560" height="315" src="https://www.youtube.com/embed/Wv-1z71umlI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
                 order: 1,

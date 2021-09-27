@@ -33,7 +33,7 @@ export default {
       sections: [
         {
           id: 3,
-          type: 'HTML',
+          type: SectionType.HTML,
           value: '<h1> Ivan test sectiooon</h1>',
           order: 1,
           page_id: 2,
@@ -42,7 +42,7 @@ export default {
         },
         {
           id: 4,
-          type: 'video',
+          type: SectionType.Video,
           value:
             '<iframe width="560" height="315" src="https://www.youtube.com/embed/Wv-1z71umlI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
           order: 1,
@@ -55,7 +55,12 @@ export default {
     return { value }
   },
   data() {
-    return { value: {}, SectionType, isContentEditable: false }
+    return {
+      value: {},
+      SectionType,
+      isContentEditable: false,
+      sectionsCopy: [],
+    }
   },
   computed: {
     sections() {
@@ -74,6 +79,15 @@ export default {
       this.$emit('save-page', data.data)
       this.$toast.success('Page successfully edited!')
     },
+    toggleIsContentEditable(value) {
+      this.isContentEditable = value ?? !this.isContentEditable
+      if (value) {
+        this.createContentCopy()
+      }
+    },
+    createContentCopy() {
+      this.sectionsCopy = this.sections.map((section) => new Section(section))
+    },
     addSection(type) {
       const newSection = new Section({
         type,
@@ -91,11 +105,16 @@ export default {
     async saveContent() {
       const promise = new Promise((resolve, reject) => {
         console.log('sad kao sejva na back')
-        resolve(this.value /* vrati nove podatke */)
+        resolve(
+          {
+            ...this.value,
+            sections: this.sectionsCopy,
+          } /* vrati nove podatke */
+        )
       })
       // todo: pripaziti na reaktivnost
       this.value = await promise
-      this.isContentEditable = false
+      this.toggleIsContentEditable(false)
     },
   },
 }
@@ -114,7 +133,7 @@ export default {
       <button
         class="bg-blue-500"
         type="button"
-        @click="isContentEditable = true"
+        @click="toggleIsContentEditable(true)"
       >
         Edit content
       </button>
@@ -127,7 +146,7 @@ export default {
         save content
       </button>
 
-      <template v-for="section in sections">
+      <template v-for="section in sectionsCopy">
         <editor
           v-if="section.type === SectionType.HTML"
           :key="section.id || section._key"
@@ -159,6 +178,13 @@ export default {
 
       <button class="bg-blue-500" type="button" @click="saveContent">
         save content
+      </button>
+      <button
+        class="bg-red-500"
+        type="button"
+        @click="toggleIsContentEditable(false)"
+      >
+        cancel editing
       </button>
     </template>
     <!--    <div class="mt-5 flex gap-4 justify-end">-->
