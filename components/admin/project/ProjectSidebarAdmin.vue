@@ -1,6 +1,7 @@
 <script>
 import ProjectSidebarItem from '~/components/admin/project/ProjectSidebarItem'
 import MenuIcon from '~/static/icons/icon-layers.svg?inline'
+import Page from '~/classes/admin/Page'
 
 export default {
   name: 'ProjectSidebar',
@@ -14,6 +15,8 @@ export default {
   data() {
     return {
       isMenuOpened: false,
+      newPageTitle: '',
+      isNewPageEditActive: false,
     }
   },
   methods: {
@@ -26,6 +29,17 @@ export default {
     },
     newPage() {
       this.$router.push(`/admin/projects/${this.$route.params.id}/page/create`)
+    },
+    openNewPageEdit() {
+      this.newPageTitle = ''
+      this.isNewPageEditActive = true
+    },
+    submitNewPage() {
+      const newPage = new Page({
+        project_id: this.$route.params.id,
+        title: this.newPageTitle,
+      })
+      console.log(newPage)
     },
   },
 }
@@ -43,11 +57,25 @@ export default {
         :key="`page-list${page.id}`"
         :page="page"
       />
+      <div class="flex items-center">
+        <input
+          v-show="isNewPageEditActive"
+          v-model="newPageTitle"
+          type="text"
+          class="flex-1 min-w-0"
+        />
+        <custom-icon
+          v-show="isNewPageEditActive"
+          icon="icon-check"
+          class="w-7 h-7 cursor-pointer"
+          @click.native="submitNewPage"
+        />
+      </div>
       <button
-        class="bg-primary-purple px-5 py-1 text-white rounded-full w-20 font-semibold ml-4 block"
-        @click="newPage"
+        class="bg-primary-purple whitespace-nowrap px-5 py-1 text-white rounded-full font-semibold ml-4 block"
+        @click="openNewPageEdit"
       >
-        New
+        Add new page
       </button>
     </div>
     <div

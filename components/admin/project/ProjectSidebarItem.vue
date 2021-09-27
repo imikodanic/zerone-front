@@ -13,7 +13,7 @@ export default {
       editingPageTitleId: 0,
       editingPageTitle: '',
       newPageTitle: '',
-      newPageParent: 0,
+      isNewPageEditActive: false,
     }
   },
   computed: {
@@ -75,6 +75,14 @@ export default {
       )
       this.editingPageTitleId = 0
       this.editingPageTitle = ''
+    },
+    openNewPageEdit() {
+      this.newPageTitle = ''
+      this.isNewPageEditActive = true
+    },
+    saveNewPage() {
+      this.$emit('submit-new-page', this.newPageTitle)
+      this.isNewPageEditActive = false
     },
   },
 }
@@ -172,11 +180,29 @@ export default {
           @close-menu="closeMenu"
           @refresh-project="$emit('refresh-project')"
         />
+        <!--        <button-->
+        <!--          class="bg-primary-purple px-5 py-1 text-white rounded-full font-semibold w-20 mx-auto block"-->
+        <!--          @click="newPage"-->
+        <!--        >-->
+        <!--          New-->
+        <!--        </button>-->
+        <input
+          v-show="isNewPageEditActive"
+          v-model="newPageTitle"
+          type="text"
+          class="flex-1 min-w-0"
+        />
+        <custom-icon
+          v-show="isNewPageEditActive"
+          icon="icon-check"
+          class="w-7 h-7 cursor-pointer"
+          @click.native="saveNewPage"
+        />
         <button
           class="bg-primary-purple px-5 py-1 text-white rounded-full font-semibold w-20 mx-auto block"
-          @click="newPage"
+          @click="openNewPageEdit"
         >
-          New
+          Add new page
         </button>
       </div>
     </div>
