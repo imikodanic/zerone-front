@@ -75,13 +75,18 @@ export default {
         (page) => page.id === e.eventData.element.id
       )
       const parent = this.project.pages.find((page) => page.id === e.toPageId)
+      this.project.pages.splice(index, 1, {
+        ...this.project.pages[index],
+        parent,
+        order: e.eventData.newIndex,
+        project_id: this.project.id,
+      })
       const movedPage = new Page({
         ...this.project.pages[index],
         parent,
         order: e.eventData.newIndex,
         project_id: this.project.id,
       })
-      this.project.pages.splice(index, 1, movedPage)
       this.$services.page.patch(movedPage)
     },
     removePage(e) {

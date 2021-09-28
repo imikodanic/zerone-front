@@ -1,11 +1,10 @@
 <template>
   <draggable
-    class="dragArea"
     tag="ul"
     animation="300"
     :value="pages"
-    :group="{ name: 'g1', put: checkPut, pull: true }"
-    @change="log"
+    :group="{ name: 'g1', put: !noPut }"
+    @change="emitChanges"
   >
     <li v-for="page in pages" :key="page.id">
       <project-sidebar-item :page="page" />
@@ -13,6 +12,7 @@
         class="ml-4"
         :pages="page.pages"
         :page-id="page.id"
+        :no-put="!!pageId"
         @add-page="$emit('add-page', $event)"
         @remove-page="$emit('remove-page', $event)"
         @move-page="$emit('move-page', $event)"
@@ -30,15 +30,19 @@ export default {
   props: {
     pages: {
       type: Array,
-      required: true,
+      default: () => [],
     },
     pageId: {
       type: Number,
       default: 0,
     },
+    noPut: {
+      type: Boolean,
+      default: false,
+    },
   },
   methods: {
-    log(e) {
+    emitChanges(e) {
       if (e.added) {
         this.$emit('add-page', {
           toPageId: this.pageId,
@@ -65,7 +69,7 @@ export default {
 
 <style scoped>
 .dragArea {
-  /*min-height: 50px;*/
-  /*outline: 1px dashed;*/
+  min-height: 50px;
+  outline: 1px dashed;
 }
 </style>
