@@ -25,7 +25,6 @@ export default {
       this.isMenuOpened = !this.isMenuOpened
     },
     refreshProject() {
-      console.log('jel doslo dovde')
       this.$emit('refresh-project')
     },
     newPage() {
@@ -61,10 +60,13 @@ export default {
         @move-page="$emit('move-page', $event)"
       />
       <div class="flex items-center">
-        <input
+        <t-input
           v-show="isNewPageEditActive"
+          id="=new-page-title"
           v-model="newPageTitle"
           type="text"
+          dense
+          hide-validator
           class="flex-1 min-w-0"
         />
         <custom-icon
@@ -75,7 +77,7 @@ export default {
         />
       </div>
       <button
-        class="bg-primary-purple whitespace-nowrap px-5 py-1 text-white rounded-full font-semibold block"
+        class="bg-primary-purple whitespace-nowrap mt-3 px-5 py-1 text-white rounded-full font-semibold block"
         @click="openNewPageEdit"
       >
         Add new page

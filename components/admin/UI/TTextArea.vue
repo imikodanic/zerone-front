@@ -47,7 +47,7 @@ export default {
         :autofocus="autofocus"
         :rows="rows"
         :placeholder="placeholder"
-        class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"
+        class="focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block px-4 py-1.5 w-full border border-gray-300 rounded-md"
         :class="{ invalid: isInvalid }"
         @blur="validate"
         @input="$emit('input', $event.target.value)"

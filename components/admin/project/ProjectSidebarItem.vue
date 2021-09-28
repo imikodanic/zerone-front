@@ -53,7 +53,6 @@ export default {
       } catch {}
     },
     refreshProject() {
-      console.log('refreshalo se')
       this.$emit('refresh-project')
     },
     newPage() {
@@ -88,10 +87,13 @@ export default {
       <span
         class="w-4 h-4 inline-block rounded-full border-3 border-primary-purple bg-primary-purple"
       ></span>
-      <input
+      <t-input
         v-show="editingPageTitleId === page.id"
+        id="page-name"
         v-model="editingPageTitle"
         type="text"
+        dense
+        hide-validator
         class="flex-1 min-w-0"
       />
       <custom-icon
