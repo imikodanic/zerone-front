@@ -35,7 +35,7 @@ export default {
         :name="id"
         type="checkbox"
         :checked="value"
-        class="focus:ring-indigo-500 h-5 w-5 text-indigo-600 border-gray-300"
+        class="focus:outline-none focus:ring-indigo-500 h-4 w-4 text-indigo-600 border border-gray-300 rounded"
         :class="type === 'radio' ? 'rounded-full' : 'rounded'"
         @change="$emit('input', $event.target.checked)"
       />

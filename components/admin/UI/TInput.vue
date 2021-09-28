@@ -50,7 +50,7 @@ export default {
         :aria-label="label || type"
         :autofocus="autofocus"
         :maxlength="maxLength"
-        class="focus:ring-indigo-500 focus:border-indigo-500 block w-full border-gray-300 rounded-md"
+        class="focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block px-4 py-1.5 w-full border border-gray-300 rounded-md"
         :class="{ invalid: isInvalid }"
         @blur="validate"
         @input="$emit('input', $event.target.value)"
