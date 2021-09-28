@@ -41,11 +41,15 @@ export default {
         else parent.pages.push(page)
       })
 
-      structuredPages.sort((a, b) => {
-        return a.order - b.order
-      })
+      sortPages(structuredPages)
+
+      structuredPages.forEach((page) => sortPages(page.pages))
 
       return structuredPages
+
+      function sortPages(pages) {
+        return pages.sort((a, b) => a.order - b.order)
+      }
     },
   },
   methods: {

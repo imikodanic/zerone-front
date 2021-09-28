@@ -84,17 +84,9 @@ export default {
 
 <template>
   <div class="px-5 py-1 truncate">
-    <div
-      v-if="!pages.length"
-      class="inline-flex gap-2 items-center group w-full"
-    >
+    <div class="inline-flex gap-2 items-center group w-full">
       <span
-        class="w-4 h-4 inline-block rounded-full border-3 border-primary-purple group-hover:bg-white"
-        :class="{
-          'bg-white': isActive,
-          'bg-primary-purple': !isActive,
-        }"
-        @click="closeMenu"
+        class="w-4 h-4 inline-block rounded-full border-3 border-primary-purple bg-primary-purple"
       ></span>
       <input
         v-show="editingPageTitleId === page.id"
@@ -108,9 +100,12 @@ export default {
         class="w-7 h-7 cursor-pointer"
         @click.native="saveEditingPageTitle(page)"
       />
-      <nuxt-link v-show="editingPageTitleId !== page.id" :to="pagePath">{{
-        page.title
-      }}</nuxt-link>
+      <nuxt-link
+        v-show="editingPageTitleId !== page.id"
+        :to="pagePath"
+        class="flex-1"
+        >{{ page.title }}</nuxt-link
+      >
       <custom-icon
         v-show="editingPageTitleId !== page.id"
         icon="icon-edit"
@@ -123,82 +118,6 @@ export default {
         class="w-7 h-7 cursor-pointer"
         @click.native="deletePage"
       />
-    </div>
-
-    <div v-else>
-      <div
-        class="relative w-3 h-3 ml-0.5 inline-block cursor-pointer"
-        @click="toggleExpand"
-      >
-        <div
-          class="w-4 h-1 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-          :class="isActive ? 'bg-primary-yellow' : 'bg-primary-purple'"
-        ></div>
-        <div
-          v-if="!isExpanded"
-          class="w-1 h-4 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-          :class="isActive ? 'bg-primary-yellow' : 'bg-primary-purple'"
-        ></div>
-      </div>
-      <div class="inline-flex gap-2 items-center">
-        <nuxt-link
-          :to="pagePath"
-          class="text-xl sm:text-lg font-medium ml-1"
-          @click.native="closeMenu"
-        >
-          {{ page.title }}
-        </nuxt-link>
-        <custom-icon
-          icon="icon-x"
-          class="w-7 h-7 cursor-pointer"
-          @click.native="deletePage"
-        />
-      </div>
-
-      <!--
-      This style max-height is here because of clean height transition
-      See more: Technique 1: https://css-tricks.com/using-css-transitions-auto-dimensions/
-       -->
-      <div
-        class="overflow-y-hidden h-full transition-all duration-500"
-        :class="{
-          'max-h-0': !isExpanded,
-        }"
-        :style="isExpanded && `max-height: ${36 * pages.length + 40}px`"
-      >
-        <project-sidebar-item
-          v-for="subPage in pages"
-          :key="`page-${subPage.id}`"
-          :page="subPage"
-          class="ml-2"
-          @close-menu="closeMenu"
-          @refresh-project="$emit('refresh-project')"
-        />
-        <!--        <button-->
-        <!--          class="bg-primary-purple px-5 py-1 text-white rounded-full font-semibold w-20 mx-auto block"-->
-        <!--          @click="newPage"-->
-        <!--        >-->
-        <!--          New-->
-        <!--        </button>-->
-        <input
-          v-show="isNewPageEditActive"
-          v-model="newPageTitle"
-          type="text"
-          class="flex-1 min-w-0"
-        />
-        <custom-icon
-          v-show="isNewPageEditActive"
-          icon="icon-check"
-          class="w-7 h-7 cursor-pointer"
-          @click.native="saveNewPage"
-        />
-        <button
-          class="bg-primary-purple px-5 py-1 text-white rounded-full font-semibold w-20 mx-auto block"
-          @click="openNewPageEdit"
-        >
-          Add new page
-        </button>
-      </div>
     </div>
   </div>
 </template>

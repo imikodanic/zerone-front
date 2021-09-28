@@ -2,13 +2,15 @@
   <draggable
     class="dragArea"
     tag="ul"
+    animation="300"
     :value="pages"
     :group="{ name: 'g1', put: checkPut, pull: true }"
     @change="log"
   >
     <li v-for="page in pages" :key="page.id">
-      <p>{{ page.title }} {{ pageId }}</p>
+      <project-sidebar-item :page="page" />
       <project-sidebar-draggable
+        class="ml-4"
         :pages="page.pages"
         :page-id="page.id"
         @add-page="$emit('add-page', $event)"
@@ -21,9 +23,10 @@
 
 <script>
 import draggable from 'vuedraggable'
+import ProjectSidebarItem from '~/components/admin/project/ProjectSidebarItem'
 export default {
   name: 'ProjectSidebarDraggable',
-  components: { draggable },
+  components: { draggable, ProjectSidebarItem },
   props: {
     pages: {
       type: Array,
@@ -62,8 +65,7 @@ export default {
 
 <style scoped>
 .dragArea {
-  min-height: 50px;
-  outline: 1px dashed;
-  padding-left: 50px;
+  /*min-height: 50px;*/
+  /*outline: 1px dashed;*/
 }
 </style>

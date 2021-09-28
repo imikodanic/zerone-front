@@ -60,11 +60,6 @@ export default {
         @remove-page="$emit('remove-page', $event)"
         @move-page="$emit('move-page', $event)"
       />
-      <project-sidebar-item
-        v-for="page in pages"
-        :key="`page-list${page.id}`"
-        :page="page"
-      />
       <div class="flex items-center">
         <input
           v-show="isNewPageEditActive"
@@ -80,7 +75,7 @@ export default {
         />
       </div>
       <button
-        class="bg-primary-purple whitespace-nowrap px-5 py-1 text-white rounded-full font-semibold ml-4 block"
+        class="bg-primary-purple whitespace-nowrap px-5 py-1 text-white rounded-full font-semibold block"
         @click="openNewPageEdit"
       >
         Add new page
