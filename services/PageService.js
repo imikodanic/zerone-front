@@ -1,4 +1,4 @@
-import VueService from '../plugins/doServiceYo'
+import VueService from 'vue-api-services'
 
 const url = 'admin/pages'
 

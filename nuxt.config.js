@@ -25,7 +25,6 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/globalComponents.js',
-    '~/plugins/apiServices.js',
     '~/plugins/axios.js',
     '~/plugins/globalMixin.js',
     '~/plugins/vuelidate.js',
@@ -60,6 +59,7 @@ export default {
     'cookie-universal-nuxt',
     // https://i18n.nuxtjs.org/setup
     '@nuxtjs/i18n',
+    'vue-api-services/nuxt',
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
