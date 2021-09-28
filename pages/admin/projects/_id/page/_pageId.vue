@@ -141,18 +141,18 @@ export default {
         />
       </template>
 
-      <button type="button" @click="addTextSection">add tekst</button>
-      <button type="button" @click="addVideoSection">add video</button>
+      <button type="button" @click="addTextSection">Add Content</button>
+      <!--      <button type="button" @click="addVideoSection">add video</button>-->
 
       <button class="bg-blue-500" type="button" @click="saveContent">
-        save content
+        Save Content
       </button>
       <button
         class="bg-red-500"
         type="button"
         @click="toggleIsContentEditable(false)"
       >
-        cancel editing
+        Cancel editing
       </button>
     </template>
     <!--    <div class="mt-5 flex gap-4 justify-end">-->
