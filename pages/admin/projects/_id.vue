@@ -70,10 +70,11 @@ export default {
 
       this.$router.push(`/admin/projects/${this.project.id}/page/${data.id}`)
     },
-    addPage(e) {
+    async addPage(e) {
       const index = this.project.pages.findIndex(
         (page) => page.id === e.eventData.element.id
       )
+      const id = this.project.pages[index].id
       const parent = this.project.pages.find((page) => page.id === e.toPageId)
       this.project.pages.splice(index, 1, {
         ...this.project.pages[index],
@@ -81,6 +82,24 @@ export default {
         order: e.eventData.newIndex,
         project_id: this.project.id,
       })
+      const pagesWithMovedPageAsParent = this.project.pages.filter(
+        (page) => page.parent?.id === id
+      )
+      pagesWithMovedPageAsParent.forEach((page) => {
+        const _index = this.project.pages.findIndex((p) => p.id === page.id)
+        this.project.pages.splice(_index, 1, {
+          ...page,
+          parent: null,
+        })
+      })
+      for (const page of pagesWithMovedPageAsParent) {
+        const _index = this.project.pages.findIndex((p) => p.id === page.id)
+        this.project.pages.splice(_index, 1, {
+          ...page,
+          parent: null,
+        })
+        await this.$services.page.patch(this.project.pages[_index])
+      }
       const movedPage = new Page({
         ...this.project.pages[index],
         parent,
