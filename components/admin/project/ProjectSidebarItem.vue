@@ -1,6 +1,9 @@
 <script>
+import PageService from '~/services/PageService'
+import Page from '~/classes/admin/Page'
 export default {
   name: 'ProjectSidebarItem',
+  services: { PageService },
   props: {
     page: {
       type: Object,
@@ -65,7 +68,14 @@ export default {
       this.editingPageTitleId = page.id
       this.editingPageTitle = page.title
     },
-    saveEditingPageTitle() {
+    async saveEditingPageTitle() {
+      const patchedPage = new Page({
+        ...this.page,
+        title: this.editingPageTitle,
+        project_id: this.$route.params.id,
+      })
+
+      await this.$services.page.patch(patchedPage)
       this.editingPageTitleId = 0
       this.editingPageTitle = ''
     },
