@@ -9,7 +9,7 @@ export default {
     const projectService = ProjectService.use({ $axios })
     const project = await projectService.get(params.id)
     if (project.hasErrored) return error(project)
-    return project
+    return { project }
   },
   data() {
     return {
@@ -41,6 +41,10 @@ export default {
         else parent.pages.push(page)
       })
 
+      structuredPages.sort((a, b) => {
+        return a.order - b.order
+      })
+
       return structuredPages
     },
   },
@@ -54,10 +58,44 @@ export default {
       const { data } = await this.$axios.$post('/admin/pages', {
         ...value,
         project_id: this.project.id,
+        order: this.project.pages.length,
       })
       await this.refreshProject()
 
       this.$router.push(`/admin/projects/${this.project.id}/page/${data.id}`)
+    },
+    addPage(e) {
+      const index = this.project.pages.findIndex(
+        (page) => page.id === e.eventData.element.id
+      )
+      const parent = this.project.pages.find((page) => page.id === e.toPageId)
+      this.project.pages.splice(index, 1, {
+        ...this.project.pages[index],
+        parent,
+        order: e.eventData.newIndex,
+      })
+    },
+    removePage(e) {
+      // console.log(e)
+    },
+    movePage(e) {
+      const {
+        inPageId,
+        eventData: { newIndex, oldIndex },
+      } = e
+      const affectedPages = [
+        ...this.project.pages
+          .filter((page) => (page.parent?.id || 0) === inPageId)
+          .sort((a, b) => a.order - b.order),
+      ]
+      const pageToMove = affectedPages[oldIndex]
+      affectedPages.splice(oldIndex, 1, affectedPages[newIndex])
+      affectedPages.splice(newIndex, 1, pageToMove)
+      const withOrders = affectedPages.map((page, i) => ({ ...page, order: i }))
+      withOrders.forEach((page) => {
+        const index = this.project.pages.findIndex((p) => p.id === page.id)
+        this.project.pages.splice(index, 1, page)
+      })
     },
   },
 }
@@ -69,6 +107,9 @@ export default {
       :pages="pages"
       @refresh-project="refreshProject"
       @create-page="createPage"
+      @add-page="addPage"
+      @remove-page="removePage"
+      @move-page="movePage"
     />
     <div class="w-full mt-10 lg:ml-72 z-50">
       <h1 class="text-6xl font-light text-center w-full">

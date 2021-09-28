@@ -41,13 +41,13 @@ export default {
     closeMenu() {
       this.$emit('close-menu')
     },
-    deletePage() {
+    async deletePage() {
       const isConfirmed = confirm('Are you sure you want to delete this item?')
 
       if (!isConfirmed) return
 
       try {
-        // await this.$axios.delete(`/admin/pages/${this.page.id}`)
+        await this.$axios.delete(`/admin/pages/${this.page.id}`)
 
         this.refreshProject()
       } catch {}
@@ -67,12 +67,6 @@ export default {
       this.editingPageTitle = page.title
     },
     saveEditingPageTitle() {
-      console.log(
-        'sejvaj',
-        this.editingPageTitle,
-        'na',
-        this.editingPageTitleId
-      )
       this.editingPageTitleId = 0
       this.editingPageTitle = ''
     },

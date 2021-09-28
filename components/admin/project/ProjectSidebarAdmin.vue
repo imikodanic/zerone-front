@@ -2,10 +2,11 @@
 import ProjectSidebarItem from '~/components/admin/project/ProjectSidebarItem'
 import MenuIcon from '~/static/icons/icon-layers.svg?inline'
 import Page from '~/classes/admin/Page'
+import ProjectSidebarDraggable from '~/components/admin/project/ProjectSidebarDraggable'
 
 export default {
   name: 'ProjectSidebar',
-  components: { ProjectSidebarItem, MenuIcon },
+  components: { ProjectSidebarItem, MenuIcon, ProjectSidebarDraggable },
   props: {
     pages: {
       type: Array,
@@ -53,6 +54,12 @@ export default {
     <div
       class="hidden lg:flex flex-col justify-center h-full min-h-sidebar w-72 py-2 px-3 flex-shrink-0"
     >
+      <project-sidebar-draggable
+        :pages="pages"
+        @add-page="$emit('add-page', $event)"
+        @remove-page="$emit('remove-page', $event)"
+        @move-page="$emit('move-page', $event)"
+      />
       <project-sidebar-item
         v-for="page in pages"
         :key="`page-list${page.id}`"
