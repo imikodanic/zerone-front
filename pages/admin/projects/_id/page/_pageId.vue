@@ -2,9 +2,11 @@
 import Editor from '@tinymce/tinymce-vue'
 import SectionType from '~/enums/SectionType'
 import Section from '~/classes/admin/Section'
+import PageService from '~/services/PageService'
 
 export default {
   components: { Editor },
+  services: { PageService },
   layout: 'project',
   async asyncData({ $axios, params }) {
     const { data } = await $axios.get(`/admin/pages/${params.pageId}`)
@@ -64,12 +66,11 @@ export default {
       // await this.save()
       // return
       const sections = this.sectionsCopy.map(Section.toJSON)
-      const { data } = await this.$axios.patch(`admin/pages/${this.value.id}`, {
+      const page = await this.$services.page.patch({
         ...this.value,
-        sections,
+        sections: sections.map((section, i) => ({ ...section, order: i })),
       })
-
-      this.$emit('save-page', data.data)
+      this.$emit('save-page', page)
       this.$toast.success('Page successfully edited!')
       // const promise = new Promise((resolve, reject) => {
       //   console.log('sad kao sejva na back')
