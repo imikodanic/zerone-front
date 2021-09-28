@@ -97,6 +97,7 @@ export default {
         this.project.pages.splice(_index, 1, {
           ...page,
           parent: null,
+          parent_id: null,
         })
         await this.$services.page.patch(this.project.pages[_index])
       }
