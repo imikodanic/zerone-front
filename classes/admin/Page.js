@@ -7,5 +7,6 @@ export default class Page {
     this.is_public = props.is_public ?? true
     this.parent_id = props.parent_id || props.parent?.id || null
     this.project_id = props.project_id || props.project?.id || null
+    this.order = props.order || 0
   }
 }

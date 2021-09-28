@@ -1,9 +1,11 @@
 <script>
 import ProjectSidebarAdmin from '@/components/admin/project/ProjectSidebarAdmin'
 import ProjectService from '~/services/ProjectService'
+import PageService from '~/services/PageService'
+import Page from '~/classes/admin/Page'
 export default {
   components: { ProjectSidebarAdmin },
-  services: { ProjectService },
+  services: { ProjectService, PageService },
   layout: 'project',
   async asyncData({ $axios, params, error }) {
     const projectService = ProjectService.use({ $axios })
@@ -73,11 +75,14 @@ export default {
         (page) => page.id === e.eventData.element.id
       )
       const parent = this.project.pages.find((page) => page.id === e.toPageId)
-      this.project.pages.splice(index, 1, {
+      const movedPage = new Page({
         ...this.project.pages[index],
         parent,
         order: e.eventData.newIndex,
+        project_id: this.project.id,
       })
+      this.project.pages.splice(index, 1, movedPage)
+      this.$services.page.patch(movedPage)
     },
     removePage(e) {
       // console.log(e)
@@ -99,6 +104,11 @@ export default {
       withOrders.forEach((page) => {
         const index = this.project.pages.findIndex((p) => p.id === page.id)
         this.project.pages.splice(index, 1, page)
+        const movedPage = new Page({
+          ...page,
+          project_id: this.project.id,
+        })
+        this.$services.page.patch(movedPage)
       })
     },
   },
