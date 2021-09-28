@@ -100,7 +100,7 @@ export default {
     />
     <template v-if="!isContentEditable">
       <button
-        class="bg-blue-500"
+        class="bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         type="button"
         @click="toggleIsContentEditable(true)"
       >
@@ -111,8 +111,13 @@ export default {
       </template>
     </template>
     <template v-else>
-      <button type="button" class="bg-blue-500" @click="saveContent">
-        save content
+      <button
+        v-if="sections.length > 2"
+        type="button"
+        class="bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        @click="saveContent"
+      >
+        Save content
       </button>
 
       <template v-for="section in sectionsCopy">
@@ -142,14 +147,24 @@ export default {
         />
       </template>
 
-      <button type="button" @click="addTextSection">Add Content</button>
+      <button
+        type="button"
+        class="bg-white block my-5 py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        @click="addTextSection"
+      >
+        Add Content
+      </button>
       <!--      <button type="button" @click="addVideoSection">add video</button>-->
 
-      <button class="bg-blue-500" type="button" @click="saveContent">
+      <button
+        class="bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        type="button"
+        @click="saveContent"
+      >
         Save Content
       </button>
       <button
-        class="bg-red-500"
+        class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         type="button"
         @click="toggleIsContentEditable(false)"
       >
