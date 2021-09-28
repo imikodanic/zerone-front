@@ -83,7 +83,7 @@ export default {
         </div>
         <div class="flex gap-4 items-center cursor-pointer">
           <language-icon class="max-h-14" @click="switchLanguage" />
-          <div class="flex-shrink-0">
+          <div v-show="!$auth.loggedIn" class="flex-shrink-0">
             <t-button
               class="px-12 py-4 text-2xl flex-grow-0"
               @click="openSignIn"
@@ -91,6 +91,8 @@ export default {
               {{ $t('navbar.signin') }}
             </t-button>
           </div>
+          <!-- TODO: styling -->
+          <div v-if="$auth.loggedIn">{{ $auth.user.fullname }}</div>
         </div>
       </div>
       <!-- MOBILE -->

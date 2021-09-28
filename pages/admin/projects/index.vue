@@ -31,6 +31,7 @@ export default {
       api-url="/admin/projects"
       :headers="headers"
       project-crud
+      fetch-delay="500"
     />
   </div>
 </template>

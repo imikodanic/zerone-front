@@ -18,7 +18,9 @@ export default {
       {{ page.title }}
     </h2>
     <div class="word-break">
-      <div v-html="page.description"></div>
+      <template v-for="section in page.sections">
+        <div :key="section.id || section._key" v-html="section.value"></div>
+      </template>
     </div>
   </div>
 </template>

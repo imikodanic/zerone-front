@@ -25,6 +25,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/globalComponents.js',
+    '~/plugins/apiServices.js',
     '~/plugins/axios.js',
     '~/plugins/globalMixin.js',
     '~/plugins/vuelidate.js',

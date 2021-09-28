@@ -51,6 +51,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    isLoading: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -81,6 +85,15 @@ export default {
       if (this.singleSelection) return 'radio'
 
       return 'checkbox'
+    },
+    emptyStateText() {
+      if (this.items.length) {
+        return ''
+      } else if (this.isLoading) {
+        return 'Loading...'
+      } else {
+        return 'No data to display'
+      }
     },
   },
   watch: {
@@ -186,7 +199,7 @@ export default {
             :style="`width: ${header.width} !important`"
             @click="setOrderBy(header.value)"
           >
-            <div class="flex justify-between items-center gap-2">
+            <div class="flex justify-between items-center gap-2 text-gray-500">
               {{ header.title }}
               <div
                 class="w-4 h-4 transform transition-transform ease-in flex-shrink-0"
@@ -201,7 +214,7 @@ export default {
             </div>
           </th>
           <th
-            class="px-3 py-2 text-center text-xs font-medium text-gray-500 uppercase"
+            class="px-3 py-2 text-center text-xs font-medium text-gray-500 uppercase whitespace-nowrap"
           >
             Actions
           </th>
@@ -294,6 +307,9 @@ export default {
         </tr>
       </tbody>
     </table>
+    <div v-show="!!emptyStateText" class="flex justify-center py-4">
+      {{ emptyStateText }}
+    </div>
   </div>
 </template>
 

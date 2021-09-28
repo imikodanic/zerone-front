@@ -78,6 +78,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    fetchDelay: {
+      type: [Number, String],
+      default: 0,
+    },
   },
   data() {
     return {
@@ -90,13 +94,18 @@ export default {
         orderType: null,
       },
       selectedItems: [],
+      isLoading: !!this.apiUrl,
     }
   },
-  async created() {
-    await this.getData()
+  async mounted() {
+    if (this.fetchDelay) {
+      setTimeout(() => this.fetchData(), +this.fetchDelay)
+    } else {
+      await this.fetchData()
+    }
   },
   methods: {
-    getData: debounce(async function () {
+    async fetchData() {
       try {
         const page = this.parameters.currentPage
         const limit = this.parameters.perPage
@@ -111,7 +120,9 @@ export default {
         }
 
         const { apiUrl, items } = this
+        this.isLoading = true
         const response = await this.$axios.get(apiUrl, { params })
+        this.isLoading = false
 
         const { data } = this.noPagination ? response.data : response.data.data
 
@@ -127,11 +138,14 @@ export default {
           total: pagination.total,
         }
       } catch (e) {}
+    },
+    fetchDataDebounced: debounce(function () {
+      this.fetchData()
     }, 300),
-    loadData(resetPage) {
-      if (resetPage) this.parameters.currentPage = 1
+    loadData(shouldResetPage = false) {
+      if (shouldResetPage) this.parameters.currentPage = 1
 
-      this.getData()
+      this.fetchDataDebounced()
     },
     toggleSelectItem(item) {
       if (this.singleSelection) {
@@ -206,10 +220,11 @@ export default {
       :multiple-selection="multipleSelection"
       :single-selection="singleSelection"
       :selected-items="selectedItems"
+      :is-loading="isLoading"
       @toggle-select="toggleSelectItem"
       @toggle-select-all="toggleSelectAll"
-      @get-data="getData"
+      @get-data="fetchData"
     />
-    <t-footer v-if="!noPagination" v-model="parameters" @input="getData" />
+    <t-footer v-if="!noPagination" v-model="parameters" @input="fetchData" />
   </div>
 </template>
