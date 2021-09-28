@@ -239,7 +239,7 @@ export default {
         type="text"
         :readonly="!apiUrl"
         autocomplete="off"
-        class="focus:ring-indigo-500 focus:border-indigo-500 block w-full border-gray-300 rounded-md"
+        class="focus:ring-indigo-500 focus:border-indigo-500 px-4 py-1.5 block w-full border border-gray-300 rounded-md"
         :class="{ invalid: isInvalid }"
         @click="openSelectMenu"
         @input="fetchApiOptions"

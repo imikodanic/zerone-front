@@ -33,6 +33,7 @@ export default {
       form: {
         title: { required },
         description: { required, maxLength: maxLength(254) },
+        project_group_id: { required },
       },
     }
   },
@@ -43,22 +44,30 @@ export default {
   <t-form hide-language-switch :save-method="save">
     <div class="flex flex-col md:flex-row gap-5 md:items-center mb-4">
       <t-input
-        id="group-name"
+        id="project-name"
         v-model="form.title"
         :validator="$v.form.title"
         label="Title"
         class="w-full md:w-1/2"
       />
       <t-checkbox
-        id="group-is-visible"
+        id="project-is-visible"
         v-model="form.is_visible"
         label="Is visible"
         class="md:mt-3 flex-shrink-0"
       />
     </div>
 
+    <t-select
+      id="project-group-id"
+      v-model="form.project_group_id"
+      api-url="/admin/project-groups"
+      item-value="id"
+      item-text="title"
+    />
+
     <t-text-area
-      id="group-description"
+      id="project-description"
       v-model="form.description"
       :validator="$v.form.description"
       label="Description"
