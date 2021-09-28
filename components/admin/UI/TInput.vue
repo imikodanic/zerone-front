@@ -33,6 +33,10 @@ export default {
       type: [Number, String],
       default: null,
     },
+    dense: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>
@@ -51,7 +55,7 @@ export default {
         :autofocus="autofocus"
         :maxlength="maxLength"
         class="focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block px-4 py-1.5 w-full border border-gray-300 rounded-md"
-        :class="{ invalid: isInvalid }"
+        :class="{ invalid: isInvalid, dense }"
         @blur="validate"
         @input="$emit('input', $event.target.value)"
       />
@@ -63,5 +67,8 @@ export default {
 <style scoped>
 .invalid {
   @apply ring-red-500 border-red-500;
+}
+.dense {
+  @apply px-2 py-0.5;
 }
 </style>
