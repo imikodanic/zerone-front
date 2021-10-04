@@ -59,12 +59,10 @@ export default {
     addTextSection() {
       this.addSection(SectionType.HTML)
     },
-    addVideoSection() {
-      this.addSection(SectionType.Video)
-    },
+    // addVideoSection() {
+    //   this.addSection(SectionType.Video)
+    // },
     async saveContent() {
-      // await this.save()
-      // return
       const sections = this.sectionsCopy.map(Section.toJSON)
       const page = await this.$services.page.patch({
         ...this.value,
@@ -72,18 +70,9 @@ export default {
       })
       this.$emit('save-page', page)
       this.$toast.success('Page successfully edited!')
-      // const promise = new Promise((resolve, reject) => {
-      //   console.log('sad kao sejva na back')
-      //   resolve(
-      //     {
-      //       ...this.value,
-      //       sections: this.sectionsCopy,
-      /* vrati nove podatke */
-      // )
-      // })
-      // todo: pripaziti na reaktivnost
-      // this.value = await promise
-      // this.toggleIsContentEditable(false)
+
+      this.value = page
+      this.toggleIsContentEditable(false)
     },
   },
 }
@@ -92,12 +81,12 @@ export default {
 <template>
   <div>
     <t-input id="page-title" v-model="value.title" label="Title" class="mb-3" />
-    <t-checkbox
-      id="page-visible"
-      v-model="value.is_visible"
-      label="Is visible"
-      class="mb-3"
-    />
+    <!--    <t-checkbox-->
+    <!--      id="page-visible"-->
+    <!--      v-model="value.is_visible"-->
+    <!--      label="Is visible"-->
+    <!--      class="mb-3"-->
+    <!--    />-->
     <template v-if="!isContentEditable">
       <button
         class="bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

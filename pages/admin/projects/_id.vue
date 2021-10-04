@@ -136,6 +136,9 @@ export default {
         this.$services.page.patch(movedPage)
       })
     },
+    editPage() {
+      // TODO: edit page title
+    },
   },
 }
 </script>
