@@ -43,6 +43,9 @@ export default {
       this.signInModal = true
       this.openedMenu = false
     },
+    logout() {
+      this.$auth.logout()
+    },
     switchLanguage() {
       const { state, dispatch } = this.$store
       const slug = state.language.activeLanguage === 'hr' ? 'en' : 'hr'
@@ -133,7 +136,7 @@ export default {
                         <p
                           class="text-sm font-medium leading-5 text-gray-900 truncate"
                         >
-                          username@gmail.com
+                          {{ $auth.user.email }}
                         </p>
                       </div>
                       <div class="py-1">
@@ -144,16 +147,17 @@ export default {
                           role="menuitem"
                           >Dashboard</a
                         >
-                        <span
-                          role="menuitem"
-                          tabindex="-1"
-                          class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 cursor-not-allowed opacity-50"
-                          aria-disabled="true"
-                          >New feature (soon)</span
-                        >
+                        <!--                        <span-->
+                        <!--                          role="menuitem"-->
+                        <!--                          tabindex="-1"-->
+                        <!--                          class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 cursor-not-allowed opacity-50"-->
+                        <!--                          aria-disabled="true"-->
+                        <!--                          >New feature (soon)</span-->
+                        <!--                        >-->
                       </div>
                       <div class="py-1">
                         <a
+                          @click="logout"
                           href="javascript:void(0)"
                           tabindex="3"
                           class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
