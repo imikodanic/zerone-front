@@ -4,6 +4,7 @@ import Vue from 'vue'
 import TButton from '@/components/UI/TButton'
 import TModal from '@/components/UI/TModal'
 import CustomIcon from '@/components/UI/CustomIcon'
+import LocaleLink from '@/components/UI/LocaleLink'
 
 // ADMIN
 import TInput from '@/components/admin/UI/TInput'
@@ -14,12 +15,13 @@ import TFileUpload from '~/components/admin/UI/TFileUpload'
 import TSelect from '~/components/admin/UI/input-select/TSelect'
 import TForm from '~/components/admin/containers/forms/TForm'
 
+// GENERAL
 Vue.component('TButton', TButton)
 Vue.component('TModal', TModal)
 Vue.component('CustomIcon', CustomIcon)
+Vue.component('LocaleLink', LocaleLink)
 
-// GENERAL
-
+// ADMIN
 Vue.component('TInput', TInput)
 Vue.component('TDropdown', TDropdown)
 Vue.component('TTextArea', TTextArea)
