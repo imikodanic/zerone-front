@@ -49,19 +49,19 @@ export default {
         >
           {{ $t('footer.information.title') }}
         </h6>
-        <nuxt-link to="/about" class="mr-20">
-          {{ $t('footer.information.about') }}</nuxt-link
+        <locale-link to="/about" class="mr-20">
+          {{ $t('footer.information.about') }}</locale-link
         >
-        <nuxt-link to="/creators2">{{
+        <locale-link to="/creators2">{{
           $t('footer.information.creators')
-        }}</nuxt-link>
+        }}</locale-link>
         <br />
-        <nuxt-link to="/terms-of-service" class="mr-14">
+        <locale-link to="/terms-of-service" class="mr-14">
           {{ $t('footer.information.tos') }}
-        </nuxt-link>
-        <nuxt-link to="/privacy-policy">{{
+        </locale-link>
+        <locale-link to="/privacy-policy">{{
           $t('footer.information.privacy')
-        }}</nuxt-link>
+        }}</locale-link>
       </div>
 
       <div class="pb-10 sm:pb-0">

@@ -26,11 +26,11 @@ export default {
         >
           {{ group.description }}
         </p>
-        <nuxt-link :to="`/group/${group.id}`">
+        <locale-link :to="`/group/${group.id}`">
           <t-button class="mt-4 px-12 py-2 md:w-auto hidden 2xl:block">
             Open
           </t-button>
-        </nuxt-link>
+        </locale-link>
       </div>
       <!-- Image -->
       <div class="w-72 h-72 xl:w-56 xl:h-56 flex-shrink-0 order-1 xl:order-2">
@@ -42,10 +42,10 @@ export default {
       </div>
     </div>
     <!-- Full width button (hidden on 2xl screen) -->
-    <nuxt-link :to="`/group/${group.id}`">
+    <locale-link :to="`/group/${group.id}`">
       <t-button class="mt-8 px-12 py-2 block w-full 2xl:hidden">
         Open
       </t-button>
-    </nuxt-link>
+    </locale-link>
   </div>
 </template>

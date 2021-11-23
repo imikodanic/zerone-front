@@ -47,7 +47,7 @@ export default {
                 {{ $auth.user.firstname }}!
               </span>
             </div>
-            <nuxt-link
+            <locale-link
               to="/admin"
               class="px-4 py-1 flex items-center cursor-pointer hover:bg-gray-200"
             >
@@ -65,7 +65,7 @@ export default {
               <!--                          aria-disabled="true"-->
               <!--                          >New feature (soon)</span-->
               <!--                        >-->
-            </nuxt-link>
+            </locale-link>
             <div
               class="px-4 py-1 flex items-center cursor-pointer hover:bg-gray-200"
               @click="logout"
