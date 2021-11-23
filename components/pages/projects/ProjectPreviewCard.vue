@@ -43,9 +43,9 @@ export default {
           </div>
         </div>
       </div>
-      <nuxt-link :to="`/project/${project.title}/${project.id}`">
+      <locale-link :to="`/project/${project.title}/${project.id}`">
         <t-button class="py-2 mt-4">View</t-button>
-      </nuxt-link>
+      </locale-link>
     </div>
   </div>
 </template>

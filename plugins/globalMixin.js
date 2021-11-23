@@ -10,6 +10,16 @@ const formatDate = (date, format) => {
 Vue.filter('formatDate', (date, format) => formatDate(date, format))
 
 Vue.mixin({
+  computed: {
+    // Extend router because of locale routing for easier maintenance
+    $localeRouter() {
+      const push = (path) => {
+        this.$router.push(this.localePath(path))
+      }
+
+      return { ...this.$router, push }
+    },
+  },
   methods: {
     $formatDate(date, format) {
       return formatDate(date, format)
