@@ -51,7 +51,7 @@ export default {
                 class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
                 type="email"
                 placeholder="Enter your e-mail address"
-                @keypress.enter="signIn"
+                @keyup.enter="signIn"
               />
             </div>
             <div class="mt-8">
@@ -72,7 +72,7 @@ export default {
                 class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
                 type="password"
                 placeholder="Enter your password"
-                @keypress.enter="signIn"
+                @keyup.enter="signIn"
               />
             </div>
             <div class="mt-10 sm:w-1/2 mx-auto">
