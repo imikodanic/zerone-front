@@ -20,6 +20,6 @@ export default {
         </span>
       </span>
     </h1>
-    <nuxt-link to="/" class="text-4xl underline">Go back</nuxt-link>
+    <locale-link to="/" class="text-4xl underline">Go back</locale-link>
   </div>
 </template>

@@ -43,7 +43,7 @@ export default {
 
 <template>
   <div class="px-5 py-1 truncate">
-    <nuxt-link
+    <locale-link
       v-if="!pages.length"
       :to="pagePath"
       class="text-xl sm:text-lg font-medium group"
@@ -58,7 +58,7 @@ export default {
       ></span>
 
       {{ page.title }}
-    </nuxt-link>
+    </locale-link>
 
     <div v-else>
       <div
@@ -75,13 +75,13 @@ export default {
           :class="isActive ? 'bg-primary-yellow' : 'bg-primary-purple'"
         ></div>
       </div>
-      <nuxt-link
+      <locale-link
         :to="pagePath"
         class="text-xl sm:text-lg font-medium ml-1"
         @click.native="closeMenu"
       >
         {{ page.title }}
-      </nuxt-link>
+      </locale-link>
       <!--
       This style max-height is here because of clean height transition
       See more: Technique 1: https://css-tricks.com/using-css-transitions-auto-dimensions/

@@ -114,11 +114,11 @@ export default {
         class="w-7 h-7 cursor-pointer"
         @click.native="saveEditingPageTitle(page)"
       />
-      <nuxt-link
+      <locale-link
         v-show="editingPageTitleId !== page.id"
         :to="pagePath"
         class="flex-1"
-        >{{ page.title }}</nuxt-link
+        >{{ page.title }}</locale-link
       >
       <custom-icon
         v-show="editingPageTitleId !== page.id"

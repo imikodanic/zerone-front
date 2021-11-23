@@ -37,14 +37,14 @@ export default {
   >
     <div class="fixed flex flex-col top-0 left-0 w-64 bg-white h-full border-r">
       <div class="flex items-center border-b pl-5 py-1">
-        <nuxt-link to="/">
+        <locale-link to="/">
           <logo-horizontal class="w-2/3" />
-        </nuxt-link>
+        </locale-link>
       </div>
       <div class="overflow-y-auto overflow-x-hidden flex-grow">
         <ul class="flex flex-col py-4 space-y-1">
           <li v-for="section in sections" :key="section.to">
-            <nuxt-link
+            <locale-link
               :to="section.to"
               exact-active-class="bg-gray-200"
               class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-200 mx-2 rounded-lg text-gray-600 pr-6"
@@ -61,7 +61,7 @@ export default {
               >
                 {{ section.count }}
               </span>
-            </nuxt-link>
+            </locale-link>
           </li>
         </ul>
       </div>

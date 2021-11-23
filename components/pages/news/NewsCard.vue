@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <nuxt-link :to="`/news/${news.slug}`" class="max-w-3xl">
+  <locale-link :to="`/news/${news.slug}`" class="max-w-3xl">
     <br />
     <br />
     <div class="mx-5">
@@ -77,5 +77,5 @@ export default {
         </div>
       </div>
     </div>
-  </nuxt-link>
+  </locale-link>
 </template>

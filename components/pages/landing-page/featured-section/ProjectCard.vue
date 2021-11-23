@@ -26,9 +26,9 @@ export default {
       <p class="text-grayscale-gray mt-2">
         {{ project.description }}
       </p>
-      <nuxt-link :to="`/project/${project.title}/${project.id}`">
+      <locale-link :to="`/project/${project.title}/${project.id}`">
         <t-button class="md:w-auto mt-4 px-12 py-2 mb-4">View</t-button>
-      </nuxt-link>
+      </locale-link>
     </div>
   </div>
 </template>
