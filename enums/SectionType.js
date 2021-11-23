@@ -1,6 +1,7 @@
 const SectionType = {
-  HTML: 'HTML',
+  Text: 'text',
+  Gallery: 'gallery',
   Video: 'video',
 }
 
-export default Object.freeze(SectionType)
+export default SectionType
