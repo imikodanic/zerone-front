@@ -87,7 +87,7 @@ export default {
         <div class="flex gap-4 items-center cursor-pointer">
           <custom-icon
             :icon="inactiveLanguageIcon"
-            class="max-h-14"
+            class="max-h-14 w-14"
             @click.native="switchLanguage"
           />
           <div v-show="!$auth.loggedIn" class="flex-shrink-0">
