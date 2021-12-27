@@ -1,11 +1,12 @@
 <script>
 import Editor from '@tinymce/tinymce-vue'
+import SectionTypePickerModal from '@/components/admin/project/SectionTypePickerModal'
 import SectionType from '~/enums/SectionType'
 import Section from '~/classes/admin/Section'
 import PageService from '~/services/PageService'
 
 export default {
-  components: { Editor },
+  components: { SectionTypePickerModal, Editor },
   services: { PageService },
   layout: 'project',
   async asyncData({ $axios, params }) {
@@ -56,12 +57,6 @@ export default {
       })
       this.sectionsCopy.push(newSection)
     },
-    addTextSection() {
-      this.addSection(SectionType.HTML)
-    },
-    // addVideoSection() {
-    //   this.addSection(SectionType.Video)
-    // },
     async saveContent() {
       const sections = this.sectionsCopy.map(Section.toJSON)
       const page = await this.$services.page.patch({
@@ -73,6 +68,9 @@ export default {
 
       this.value = page
       this.toggleIsContentEditable(false)
+    },
+    openSectionTypePicker() {
+      this.$refs.sectionTypePicker.open()
     },
   },
 }
@@ -111,7 +109,7 @@ export default {
 
       <template v-for="section in sectionsCopy">
         <editor
-          v-if="section.type === SectionType.HTML"
+          v-if="section.type === SectionType.Text"
           :key="section.id || section._key"
           v-model="section.value"
           api-key="0np66yimd22albamx81hzgkh901xgap5cagf3iytsid7qpsp"
@@ -127,44 +125,52 @@ export default {
             toolbar_mode: 'floating',
           }"
         />
-        <input
-          v-else-if="section.type === SectionType.Video"
-          :key="section.id || section._key"
-          v-model="section.value"
-          type="text"
-          class="block"
-        />
       </template>
 
-      <button
-        type="button"
-        class="bg-white block my-5 py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        @click="addTextSection"
-      >
-        Add Content
-      </button>
+      <div class="flex justify-center my-4">
+        <button
+          type="button"
+          class="border border-gray-300 rounded-md shadow-sm w-40 h-40 flex justify-center items-center hover:bg-gray-100 transition-colors ease-in"
+          @click="openSectionTypePicker"
+        >
+          <custom-icon icon="icon-plus" class="w-24 h-24" />
+        </button>
+        <section-type-picker-modal
+          ref="sectionTypePicker"
+          @add-section="addSection"
+        />
+      </div>
+
       <!--      <button type="button" @click="addVideoSection">add video</button>-->
 
-      <button
-        class="bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        type="button"
-        @click="saveContent"
-      >
-        Save Content
-      </button>
-      <button
-        class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        type="button"
-        @click="toggleIsContentEditable(false)"
-      >
-        Cancel editing
-      </button>
+      <!--      <button-->
+      <!--        class="bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"-->
+      <!--        type="button"-->
+      <!--        @click="saveContent"-->
+      <!--      >-->
+      <!--        Save Content-->
+      <!--      </button>-->
+      <!--      <button-->
+      <!--        class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"-->
+      <!--        type="button"-->
+      <!--        @click="toggleIsContentEditable(false)"-->
+      <!--      >-->
+      <!--        Cancel editing-->
+      <!--      </button>-->
+      <div class="mt-5 flex gap-4 justify-end">
+        <button
+          class="bg-grayscale-gray-light w-52 font-bold px-12 py-2 rounded-full hover:bg-gray-400 text-white transition-colors"
+          @click="toggleIsContentEditable(false)"
+        >
+          Cancel
+        </button>
+        <button
+          class="bg-primary-purple text-white font-bold px-12 py-2 rounded-full hover:bg-secondary-purple transition-colors w-52"
+          @click="saveContent"
+        >
+          Save
+        </button>
+      </div>
     </template>
-    <!--    <div class="mt-5 flex gap-4 justify-end">-->
-    <!--      <t-button class="bg-grayscale-gray-light" style="width: 180px !important">-->
-    <!--        Cancel-->
-    <!--      </t-button>-->
-    <!--      <t-button style="width: 150px !important" @click="save">Save</t-button>-->
-    <!--    </div>-->
   </div>
 </template>
