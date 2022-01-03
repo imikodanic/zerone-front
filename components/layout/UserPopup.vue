@@ -18,20 +18,21 @@ export default {
           aria-haspopup="true"
           aria-expanded="true"
         >
+          <custom-icon
+            icon="icon-chevron-down"
+            class="w-10 h-10 chevron hidden md:inline"
+          />
+          <span class="hidden md:inline">
+            {{ $auth.user.fullname }}
+          </span>
+
           <span
-            class="flex-shrink-0 w-12 h-12 md:w-10 md:h-10 flex justify-center items-center md:mr-2 rounded-full bg-grayscale-gray"
+            class="flex-shrink-0 w-12 h-12 md:w-10 md:h-10 flex justify-center items-center md:ml-2 rounded-full bg-grayscale-gray"
           >
             <span class="text-white text-2xl md:text-lg">
               {{ $auth.user.initials }}
             </span>
           </span>
-          <span class="hidden md:inline">
-            {{ $auth.user.fullname }}
-          </span>
-          <custom-icon
-            icon="icon-chevron-down"
-            class="w-10 h-10 chevron hidden md:inline"
-          />
         </button>
         <div
           class="opacity-0 cursor-default invisible dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2 scale-95"
