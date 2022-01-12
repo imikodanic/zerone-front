@@ -8,5 +8,6 @@ export default class Page {
     this.parent_id = props.parent_id || props.parent?.id || null
     this.project_id = props.project_id || props.project?.id || null
     this.order = props.order || 0
+    this.sections = props.sections || []
   }
 }

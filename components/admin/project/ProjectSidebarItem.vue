@@ -75,6 +75,8 @@ export default {
         project_id: this.$route.params.id,
       })
 
+      delete patchedPage.sections
+
       const page = await this.$services.page.patch(patchedPage)
       // eslint-disable-next-line vue/no-mutating-props
       this.page.title = page.title
