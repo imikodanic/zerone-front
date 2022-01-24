@@ -50,10 +50,11 @@ export default {
       if (!isConfirmed) return
 
       try {
+        if (this.page.id === Number(this.$route.params.pageId))
+          await this.$router.push(`/admin/projects/${this.$route.params.id}`)
+
         await this.$axios.delete(`/admin/pages/${this.page.id}`)
 
-        await this.$router.push(`/admin/projects/${this.$route.params.id}`)
-        this.$router.go(0)
         this.refreshProject()
       } catch {}
     },
@@ -71,6 +72,11 @@ export default {
       this.editingPageTitle = page.title
     },
     async saveEditingPageTitle() {
+      if (!this.editingPageTitle) {
+        this.closeEdit()
+        return
+      }
+
       const patchedPage = new Page({
         ...this.page,
         title: this.editingPageTitle,
@@ -82,16 +88,11 @@ export default {
       const page = await this.$services.page.patch(patchedPage)
       // eslint-disable-next-line vue/no-mutating-props
       this.page.title = page.title
+      this.closeEdit()
+    },
+    closeEdit() {
       this.editingPageTitleId = 0
       this.editingPageTitle = ''
-    },
-    openNewPageEdit() {
-      this.newPageTitle = ''
-      this.isNewPageEditActive = true
-    },
-    saveNewPage() {
-      this.$emit('submit-new-page', this.newPageTitle)
-      this.isNewPageEditActive = false
     },
   },
 }
@@ -116,14 +117,15 @@ export default {
         v-show="editingPageTitleId === page.id"
         icon="icon-check"
         class="w-7 h-7 cursor-pointer"
-        @click.native="saveEditingPageTitle(page)"
+        @click.native="saveEditingPageTitle"
       />
       <locale-link
         v-show="editingPageTitleId !== page.id"
         :to="pagePath"
         class="flex-1"
-        >{{ page.title }}</locale-link
       >
+        {{ page.title }}
+      </locale-link>
       <custom-icon
         v-show="editingPageTitleId !== page.id"
         icon="icon-edit"

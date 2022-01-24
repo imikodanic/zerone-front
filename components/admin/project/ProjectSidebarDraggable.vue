@@ -7,7 +7,10 @@
     @change="emitChanges"
   >
     <li v-for="page in pages" :key="page.id">
-      <project-sidebar-item :page="page" />
+      <project-sidebar-item
+        :page="page"
+        @refresh-project="$emit('refresh-project')"
+      />
       <project-sidebar-draggable
         class="ml-4"
         :pages="page.pages"
