@@ -1,12 +1,22 @@
 <script>
-import Editor from '@tinymce/tinymce-vue'
+// Components
 import SectionTypePickerModal from '@/components/admin/project/SectionTypePickerModal'
+import SectionText from '@/components/project/sections/SectionText'
+import SectionGallery from '@/components/project/sections/SectionGallery'
+import SectionVideo from '@/components/project/sections/SectionVideo'
+
+// Utils
 import SectionType from '~/enums/SectionType'
 import Section from '~/classes/admin/Section'
 import PageService from '~/services/PageService'
 
 export default {
-  components: { SectionTypePickerModal, Editor },
+  components: {
+    SectionGallery,
+    SectionText,
+    SectionTypePickerModal,
+    SectionVideo,
+  },
   services: { PageService },
   layout: 'project',
   async asyncData({ $axios, params }) {
@@ -27,8 +37,15 @@ export default {
     sections() {
       const { sections } = this.value
       if (!sections) throw new Error('Sections are not defined!')
-      return sections
+
+      return sections.map((section) => ({
+        ...section,
+        media_ids: section.media || section.media_ids,
+      }))
     },
+  },
+  created() {
+    if (!this.sections.length) this.toggleIsContentEditable(true)
   },
   methods: {
     async save() {
@@ -61,7 +78,10 @@ export default {
       const sections = this.sectionsCopy.map(Section.toJSON)
       const page = await this.$services.page.patch({
         ...this.value,
-        sections: sections.map((section, i) => ({ ...section, order: i })),
+        sections: sections.map((section, i) => {
+          const media_ids = section.media_ids?.map((media) => media.id) || []
+          return { ...section, order: i, media_ids }
+        }),
       })
       this.$emit('save-page', page)
       this.$toast.success('Page successfully edited!')
@@ -79,12 +99,6 @@ export default {
 <template>
   <div>
     <t-input id="page-title" v-model="value.title" label="Title" class="mb-3" />
-    <!--    <t-checkbox-->
-    <!--      id="page-visible"-->
-    <!--      v-model="value.is_visible"-->
-    <!--      label="Is visible"-->
-    <!--      class="mb-3"-->
-    <!--    />-->
     <template v-if="!isContentEditable">
       <button
         class="bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -94,37 +108,45 @@ export default {
         Edit content
       </button>
       <template v-for="section in sections">
-        <div :key="section.id || section._key" v-html="section.value"></div>
-      </template>
-    </template>
-    <template v-else>
-      <button
-        v-if="sections.length > 2"
-        type="button"
-        class="bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        @click="saveContent"
-      >
-        Save content
-      </button>
-
-      <template v-for="section in sectionsCopy">
-        <editor
+        <section-text
           v-if="section.type === SectionType.Text"
           :key="section.id || section._key"
           v-model="section.value"
-          api-key="0np66yimd22albamx81hzgkh901xgap5cagf3iytsid7qpsp"
-          :init="{
-            height: '60vh',
-            selector: 'textarea',
-            plugins:
-              'link casechange formatpainter linkchecker image autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinymcespellchecker',
-            toolbar:
-              'undo redo | formatselect | bold italic backcolor | \
-                     alignleft aligncenter alignright alignjustify | \
-                     bullist numlist outdent indent | removeformat | help',
-            toolbar_mode: 'floating',
-          }"
         />
+        <section-gallery
+          v-if="section.type === SectionType.Gallery"
+          :key="section.id || section._key"
+          v-model="section.media_ids"
+        />
+        <section-video
+          v-if="section.type === SectionType.Video"
+          :key="section.id || section._key"
+          v-model="section.value"
+        />
+        <hr :key="`separator-${section.id || section._key}`" class="my-5" />
+      </template>
+    </template>
+    <template v-else>
+      <template v-for="section in sectionsCopy">
+        <SectionText
+          v-if="section.type === SectionType.Text"
+          :key="section.id || section._key"
+          v-model="section.value"
+          edit
+        />
+        <section-gallery
+          v-if="section.type === SectionType.Gallery"
+          :key="section.id || section._key"
+          v-model="section.media_ids"
+          edit
+        />
+        <section-video
+          v-if="section.type === SectionType.Video"
+          :key="section.id || section._key"
+          v-model="section.value"
+          edit
+        />
+        <hr :key="`separator-${section.id || section._key}`" class="my-5" />
       </template>
 
       <div class="flex justify-center my-4">
@@ -141,22 +163,6 @@ export default {
         />
       </div>
 
-      <!--      <button type="button" @click="addVideoSection">add video</button>-->
-
-      <!--      <button-->
-      <!--        class="bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"-->
-      <!--        type="button"-->
-      <!--        @click="saveContent"-->
-      <!--      >-->
-      <!--        Save Content-->
-      <!--      </button>-->
-      <!--      <button-->
-      <!--        class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"-->
-      <!--        type="button"-->
-      <!--        @click="toggleIsContentEditable(false)"-->
-      <!--      >-->
-      <!--        Cancel editing-->
-      <!--      </button>-->
       <div class="mt-5 flex gap-4 justify-end">
         <button
           class="bg-grayscale-gray-light w-52 font-bold px-12 py-2 rounded-full hover:bg-gray-400 text-white transition-colors"

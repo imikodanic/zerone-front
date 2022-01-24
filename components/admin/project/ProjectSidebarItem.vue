@@ -52,6 +52,8 @@ export default {
       try {
         await this.$axios.delete(`/admin/pages/${this.page.id}`)
 
+        await this.$router.push(`/admin/projects/${this.$route.params.id}`)
+        this.$router.go(0)
         this.refreshProject()
       } catch {}
     },

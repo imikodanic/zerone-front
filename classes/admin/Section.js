@@ -8,10 +8,11 @@ class Section {
     this.type = props.type
     this.value = props.value
     this.page_id = props.page_id
+    this.media_ids = props.media_ids || []
   }
 
   static toJSON(section) {
-    const keys = ['id', 'type', 'value', 'page_id']
+    const keys = ['id', 'type', 'value', 'page_id', 'media_ids']
     const JSON = {}
     keys.forEach((key) => (JSON[key] = section[key]))
     return JSON

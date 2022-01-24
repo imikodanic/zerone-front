@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../zerone-api/.idea/zerone-api.iml" filepath="$PROJECT_DIR$/../zerone-api/.idea/zerone-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/zerone-front.iml" filepath="$PROJECT_DIR$/.idea/zerone-front.iml" />
     </modules>
   </component>
