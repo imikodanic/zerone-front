@@ -92,21 +92,44 @@ export default {
     openSectionTypePicker() {
       this.$refs.sectionTypePicker.open()
     },
+    removeSection(index) {
+      const isConfirmed = confirm(
+        'Are you sure you want to delete this section?'
+      )
+
+      if (!isConfirmed) return
+
+      this.sectionsCopy.splice(index, 1)
+    },
   },
 }
 </script>
-
 <template>
   <div>
-    <t-input id="page-title" v-model="value.title" label="Title" class="mb-3" />
-    <template v-if="!isContentEditable">
+    <div class="mb-3 flex gap-4 justify-end">
       <button
-        class="bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        type="button"
+        v-if="!isContentEditable"
+        class="bg-primary-purple text-white font-bold px-12 py-2 rounded-full hover:bg-secondary-purple transition-colors w-52"
         @click="toggleIsContentEditable(true)"
       >
-        Edit content
+        Edit
       </button>
+      <template v-else>
+        <button
+          class="bg-grayscale-gray-light w-52 font-bold px-12 py-2 rounded-full hover:bg-gray-400 text-white transition-colors"
+          @click="toggleIsContentEditable(false)"
+        >
+          Cancel
+        </button>
+        <button
+          class="bg-primary-purple text-white font-bold px-12 py-2 rounded-full hover:bg-secondary-purple transition-colors w-52"
+          @click="saveContent"
+        >
+          Save
+        </button>
+      </template>
+    </div>
+    <template v-if="!isContentEditable">
       <template v-for="section in sections">
         <section-text
           v-if="section.type === SectionType.Text"
@@ -127,27 +150,35 @@ export default {
       </template>
     </template>
     <template v-else>
-      <template v-for="section in sectionsCopy">
+      <div
+        v-for="(section, index) in sectionsCopy"
+        :key="`section-${section.id || section._key}`"
+        class="relative"
+      >
         <SectionText
           v-if="section.type === SectionType.Text"
-          :key="section.id || section._key"
           v-model="section.value"
           edit
         />
         <section-gallery
           v-if="section.type === SectionType.Gallery"
-          :key="section.id || section._key"
           v-model="section.media_ids"
           edit
         />
         <section-video
           v-if="section.type === SectionType.Video"
-          :key="section.id || section._key"
           v-model="section.value"
           edit
         />
+        <div class="absolute -right-10 top-0">
+          <custom-icon
+            icon="icon-x"
+            class="w-12 h-12 cursor-pointer"
+            @click.native="removeSection(index)"
+          />
+        </div>
         <hr :key="`separator-${section.id || section._key}`" class="my-5" />
-      </template>
+      </div>
 
       <div class="flex justify-center my-4">
         <button
@@ -161,21 +192,6 @@ export default {
           ref="sectionTypePicker"
           @add-section="addSection"
         />
-      </div>
-
-      <div class="mt-5 flex gap-4 justify-end">
-        <button
-          class="bg-grayscale-gray-light w-52 font-bold px-12 py-2 rounded-full hover:bg-gray-400 text-white transition-colors"
-          @click="toggleIsContentEditable(false)"
-        >
-          Cancel
-        </button>
-        <button
-          class="bg-primary-purple text-white font-bold px-12 py-2 rounded-full hover:bg-secondary-purple transition-colors w-52"
-          @click="saveContent"
-        >
-          Save
-        </button>
       </div>
     </template>
   </div>
