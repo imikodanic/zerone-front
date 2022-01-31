@@ -79,6 +79,7 @@ export default {
   // RuntimeConfig Properties https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-runtime-config
   publicRuntimeConfig: {
     apiURL: process.env.API_URL,
+    publicURL: process.env.PUBLIC_URL,
   },
 
   // https://nuxtjs.org/docs/2.x/features/loading

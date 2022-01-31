@@ -60,19 +60,11 @@ export default {
         dotsClass: 'slider-dots',
         pauseOnDotsHover: true,
         pauseOnHover: true,
-        draggable: false,
+        draggable: true,
         slidesToShow,
         slidesToScroll: 1,
         centerMode,
       }
-    },
-  },
-  methods: {
-    openPreview(slide) {
-      this.openedImage = slide
-    },
-    closePreview() {
-      this.openedImage = null
     },
   },
 }
@@ -80,26 +72,25 @@ export default {
 
 <template>
   <div>
-    <!-- PREVIEW MODAL -->
-    <t-modal :value="!!openedImage" width="max-w-5xl">
-      <div class="flex justify-end mb-5"></div>
-      <!-- Don't render this slot if there's no openedImage because it returns slide as null so any reference to it would break -->
-      <div v-if="openedImage" class="w-full h-auto">
-        <slot name="slide" :slide="openedImage">
-          <img :src="openedImage" alt="Image preview" class="border mx-auto" />
-        </slot>
-      </div>
-    </t-modal>
     <vue-slick-carousel v-bind="carouselSettings">
+      <template #prevArrow>
+        <custom-icon icon="icon-chevron-left" class="slick-arrows" />
+      </template>
+      <template #nextArrow>
+        <custom-icon icon="icon-chevron-right" class="slick-arrows" />
+      </template>
       <!-- By default slide would be an image URL -->
       <div
         v-for="(slide, i) in slides"
         :key="`slide-${i}`"
         class="cursor-pointer"
-        @click="openPreview(slide)"
       >
-        <slot name="slide" :slide="slide">
-          <img :src="slide" :alt="`Gallery slide ${i}`" />
+        <slot name="slide" :slide="slide" :index="i">
+          <img
+            :src="slide"
+            :alt="`Gallery slide ${i}`"
+            class="pointer-events-none w-full"
+          />
         </slot>
       </div>
       <div v-if="!slides.length" class="text-center">No images</div>
@@ -134,5 +125,18 @@ export default {
 
 .slick-slide {
   @apply px-0 md:px-2.5;
+}
+.slick-prev {
+  @apply w-20 h-20;
+  left: -60px;
+}
+
+.slick-next {
+  @apply w-20 h-20;
+  right: -60px;
+}
+
+.slick-arrows {
+  top: 45%;
 }
 </style>

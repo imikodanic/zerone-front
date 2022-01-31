@@ -15,9 +15,8 @@ export default {
   },
   computed: {
     slides() {
-      return this.value.map(
-        (media) => `http://localhost:1337/${media.disk_name}`
-      )
+      const { publicURL } = this.$config
+      return this.value.map((media) => `${publicURL}/${media.disk_name}`)
     },
   },
   methods: {
@@ -31,8 +30,6 @@ export default {
         return await this.$axios.$post('/admin/media', formData)
       }
 
-      console.log(event)
-
       try {
         const files = Array.from(event.target.files)
         const fileRequests = files.map((file) => uploadFile(file))
@@ -41,10 +38,9 @@ export default {
         const uploadedData = uploadedFiles.map((file) => file.data)
 
         this.$emit('input', [...this.value, ...uploadedData])
-      } catch (e) {
-        console.error(e)
-      }
+      } catch {}
     },
+    removeImage(index) {},
   },
 }
 </script>
@@ -52,7 +48,15 @@ export default {
 <template>
   <div>
     <client-only>
-      <carousel :slides="slides" />
+      <carousel :slides="slides">
+        <template #slide="{ slide, index }">
+          <img
+            :src="slide"
+            :alt="`Gallery slide ${index}`"
+            class="pointer-events-none w-full"
+          />
+        </template>
+      </carousel>
     </client-only>
     <div v-if="edit" class="flex justify-center">
       <input
