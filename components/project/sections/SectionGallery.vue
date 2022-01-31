@@ -40,7 +40,16 @@ export default {
         this.$emit('input', [...this.value, ...uploadedData])
       } catch {}
     },
-    removeImage(index) {},
+    removeImage(index) {
+      const isConfirmed = confirm('Are you sure you want to remove this image?')
+
+      if (!isConfirmed) return
+
+      const newValue = [...this.value]
+      newValue.splice(index, 1)
+
+      this.$emit('input', newValue)
+    },
   },
 }
 </script>
@@ -50,11 +59,22 @@ export default {
     <client-only>
       <carousel :slides="slides">
         <template #slide="{ slide, index }">
-          <img
-            :src="slide"
-            :alt="`Gallery slide ${index}`"
-            class="pointer-events-none w-full"
-          />
+          <div
+            class="relative flex justify-center items-center group"
+            :class="{ 'pointer-events-none': !edit }"
+            @click="removeImage(index)"
+          >
+            <img
+              :src="slide"
+              :alt="`Gallery slide ${index}`"
+              class="w-full group-hover:opacity-60"
+            />
+
+            <custom-icon
+              icon="icon-x"
+              class="w-20 h-20 absolute opacity-0 group-hover:opacity-100"
+            />
+          </div>
         </template>
       </carousel>
     </client-only>
