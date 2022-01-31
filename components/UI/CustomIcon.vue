@@ -16,5 +16,5 @@ export default {
 </script>
 
 <template>
-  <component :is="iconComponent"></component>
+  <component :is="iconComponent" @click="$emit('click')"></component>
 </template>

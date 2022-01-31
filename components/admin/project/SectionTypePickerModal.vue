@@ -11,6 +11,11 @@ export default {
         { label: 'Text', icon: 'icon-type', value: SectionType.Text },
         { label: 'Gallery', icon: 'icon-image', value: SectionType.Gallery },
         { label: 'Video', icon: 'icon-video', value: SectionType.Video },
+        {
+          label: 'Attachment',
+          icon: 'icon-file',
+          value: SectionType.Attachment,
+        },
       ],
     }
   },

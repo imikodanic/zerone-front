@@ -4,6 +4,7 @@ import SectionTypePickerModal from '@/components/admin/project/SectionTypePicker
 import SectionText from '@/components/project/sections/SectionText'
 import SectionGallery from '@/components/project/sections/SectionGallery'
 import SectionVideo from '@/components/project/sections/SectionVideo'
+import SectionAttachments from '@/components/project/sections/SectionAttachments'
 
 // Utils
 import SectionType from '~/enums/SectionType'
@@ -12,6 +13,7 @@ import PageService from '~/services/PageService'
 
 export default {
   components: {
+    SectionAttachments,
     SectionGallery,
     SectionText,
     SectionTypePickerModal,
@@ -146,6 +148,11 @@ export default {
           :key="section.id || section._key"
           v-model="section.value"
         />
+        <section-attachments
+          v-if="section.type === SectionType.Attachment"
+          :key="section.id || section._key"
+          v-model="section.media_ids"
+        />
         <hr :key="`separator-${section.id || section._key}`" class="my-5" />
       </template>
     </template>
@@ -168,6 +175,12 @@ export default {
         <section-video
           v-if="section.type === SectionType.Video"
           v-model="section.value"
+          edit
+        />
+        <section-attachments
+          v-if="section.type === SectionType.Attachment"
+          :key="section.id || section._key"
+          v-model="section.media_ids"
           edit
         />
         <div class="absolute -right-10 top-0">
