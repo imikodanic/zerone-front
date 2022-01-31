@@ -97,18 +97,20 @@ export default {
             </span>
           </div>
 
-          <custom-icon
-            v-if="edit"
-            icon="icon-trash"
-            class="cursor-pointer"
-            @click="removeAttachment(index)"
-          />
-          <custom-icon
-            v-else
-            icon="icon-download"
-            class="cursor-pointer"
-            @click="openAttachment(attachment)"
-          />
+          <div class="flex-shrink-0">
+            <custom-icon
+              v-if="edit"
+              icon="icon-trash"
+              class="cursor-pointer"
+              @click="removeAttachment(index)"
+            />
+            <custom-icon
+              v-else
+              icon="icon-download"
+              class="cursor-pointer"
+              @click="openAttachment(attachment)"
+            />
+          </div>
         </li>
       </ul>
     </div>
