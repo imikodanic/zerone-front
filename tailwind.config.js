@@ -29,6 +29,9 @@ module.exports = {
       borderWidth: {
         3: '3px',
       },
+      zIndex: {
+        100: '100',
+      },
     },
     stroke: (theme) => ({
       white: theme('colors.grayscale.white'),

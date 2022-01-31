@@ -60,7 +60,7 @@ export default {
 <template>
   <div>
     <div
-      class="fixed z-30 h-20 lg:h-24 w-full bg-grayscale-white navbar-shadow"
+      class="fixed z-30 md:z-100 h-20 lg:h-24 w-full bg-grayscale-white navbar-shadow"
     >
       <!-- DESKTOP -->
       <div
