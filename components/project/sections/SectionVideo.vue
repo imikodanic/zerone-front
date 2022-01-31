@@ -40,8 +40,9 @@ export default {
     <t-input
       v-if="edit"
       id="video-input"
+      label="Youtube URL"
       :value="value"
-      class="w-52"
+      class="w-96"
       @input="setValue"
     />
     <iframe
