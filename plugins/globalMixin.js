@@ -39,5 +39,11 @@ Vue.mixin({
         return error.message
       }
     },
+    $getImage(imgHash) {
+      if (!imgHash) return null
+
+      const { publicURL } = this.$config
+      return `${publicURL}/${imgHash}`
+    },
   },
 })

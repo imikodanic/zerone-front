@@ -11,7 +11,14 @@ export default {
       required: true,
     },
   },
-  methods: {},
+  computed: {
+    projectImage() {
+      const defaultImage = '/logos/logo.svg'
+      const projectImage = this.$getImage(this.project.media.disk_name)
+
+      return projectImage || defaultImage
+    },
+  },
 }
 </script>
 
@@ -19,7 +26,7 @@ export default {
   <div class="w-full sm:w-80 shadow-lg rounded-lg bg-grayscale-white">
     <div class="h-64 rounded-t-lg bg-gray-300">
       <img
-        :src="project.image || '/logos/logo.svg'"
+        :src="projectImage"
         alt="Demo"
         class="object-cover rounded-t-lg w-full h-full"
       />

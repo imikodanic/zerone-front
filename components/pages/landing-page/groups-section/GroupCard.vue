@@ -7,6 +7,14 @@ export default {
       required: true,
     },
   },
+  computed: {
+    groupImage() {
+      const defaultImage = '/logos/logo.svg'
+      const groupImage = this.$getImage(this.group.media.disk_name)
+
+      return groupImage || defaultImage
+    },
+  },
 }
 </script>
 
@@ -35,7 +43,7 @@ export default {
       <!-- Image -->
       <div class="w-72 h-72 xl:w-56 xl:h-56 flex-shrink-0 order-1 xl:order-2">
         <img
-          :src="group.image || '/logos/logo.svg'"
+          :src="groupImage"
           alt="Demo"
           class="object-cover w-full h-full rounded-2xl"
         />

@@ -15,8 +15,7 @@ export default {
   },
   computed: {
     slides() {
-      const { publicURL } = this.$config
-      return this.value.map((media) => `${publicURL}/${media.disk_name}`)
+      return this.value.map((media) => this.$getImage(media.disk_name))
     },
   },
   methods: {
