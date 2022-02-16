@@ -14,7 +14,7 @@ export default {
   computed: {
     projectImage() {
       const defaultImage = '/logos/logo.svg'
-      const projectImage = this.$getImage(this.project.media.disk_name)
+      const projectImage = this.$getImage(this.project.media?.disk_name)
 
       return projectImage || defaultImage
     },

@@ -10,7 +10,7 @@ export default {
   computed: {
     groupImage() {
       const defaultImage = '/logos/logo.svg'
-      const groupImage = this.$getImage(this.group.media.disk_name)
+      const groupImage = this.$getImage(this.group.media?.disk_name)
 
       return groupImage || defaultImage
     },
