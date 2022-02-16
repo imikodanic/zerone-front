@@ -41,6 +41,6 @@ export default {
       }"
       @input="setValue"
     />
-    <div v-else v-html="value"></div>
+    <div v-else v-html="value" class="unreset"></div>
   </div>
 </template>
