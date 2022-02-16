@@ -46,7 +46,7 @@ export default {
     },
     async save() {
       try {
-        await this.uploadAllMedia()
+        // await this.uploadAllMedia()
 
         // first check if opened form is valid
         if (!this.validate()) return

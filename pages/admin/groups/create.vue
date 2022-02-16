@@ -25,7 +25,9 @@ export default {
       const method = id ? 'patch' : 'post'
       const url = id ? `/admin/project-groups/${id}` : '/admin/project-groups'
 
-      await this.$axios[method](url, this.form)
+      const payload = { ...this.form, media_id: this.form.media_id.id }
+
+      await this.$axios[method](url, payload)
     },
   },
   validations() {
@@ -56,6 +58,14 @@ export default {
         class="md:mt-3 flex-shrink-0"
       />
     </div>
+
+    <t-file-upload
+      id="group-media"
+      v-model="form.media_id"
+      accept=".gif,.jpg,.jpeg,.jfif,.pjpeg,.pjp,.png"
+      label="Group image"
+      class="mb-5"
+    />
 
     <t-text-area
       id="group-description"
