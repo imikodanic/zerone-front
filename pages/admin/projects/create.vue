@@ -30,7 +30,7 @@ export default {
       const method = id ? 'patch' : 'post'
       const url = id ? `/admin/projects/${id}` : '/admin/projects'
 
-      const payload = { ...this.form, media_id: this.form.media_id.id }
+      const payload = { ...this.form, media_id: this.form.media_id?.id }
 
       await this.$axios[method](url, payload)
     },
