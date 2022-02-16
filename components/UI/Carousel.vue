@@ -60,7 +60,7 @@ export default {
         dotsClass: 'slider-dots',
         pauseOnDotsHover: true,
         pauseOnHover: true,
-        draggable: true,
+        draggable: false,
         slidesToShow,
         slidesToScroll: 1,
         centerMode,
