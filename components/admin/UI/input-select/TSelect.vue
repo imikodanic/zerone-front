@@ -182,10 +182,12 @@ export default {
       } catch {}
     }, 350),
     async fetchSelectedItems() {
-      const itemIds = this.value?.filter(
-        (selectedOption) =>
-          !this.apiOptions.find((option) => option.id === selectedOption.id)
-      )
+      const itemIds = this.multiple
+        ? this.value?.filter(
+            (selectedOption) =>
+              !this.apiOptions.find((option) => option.id === selectedOption.id)
+          )
+        : [this.value].filter(Boolean)
 
       if (!itemIds?.length) return
 
@@ -193,6 +195,11 @@ export default {
         this.$axios.get(`${this.apiUrl}/${id}`)
       )
       const response = await Promise.all(requests)
+
+      if (!this.multiple) {
+        this.selectedOptionObjects = response[0].data.data
+        this.search = this.selectedOptionObjects?.[this.itemText]
+      }
 
       this.selectedOptionObjects = response.map((res) => res.data.data)
     },

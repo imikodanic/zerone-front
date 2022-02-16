@@ -10,6 +10,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    accept: {
+      type: String,
+      default: null,
+    },
   },
   computed: {
     computedValue() {
@@ -120,7 +124,8 @@ export default {
         ref="fileInput"
         type="file"
         class="hidden"
-        multiple
+        :multiple="multiple"
+        :accept="accept"
         @input="uploadFile($event)"
       />
       <button

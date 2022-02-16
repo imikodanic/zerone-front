@@ -156,7 +156,9 @@ export default {
     <div class="w-full mt-10 lg:ml-72 z-50">
       <div style="max-width: 75vw; width: 100%; margin: auto">
         <h1 class="text-6xl font-light text-center w-full">
-          {{ project.title }}
+          <nuxt-link :to="`/admin/projects/${$route.params.id}`">
+            {{ project.title }}
+          </nuxt-link>
         </h1>
         <div
           class="mx-auto w-28 h-1.5 bg-primary-yellow mt-2 rounded-full"

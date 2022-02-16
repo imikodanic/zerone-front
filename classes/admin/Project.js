@@ -7,5 +7,6 @@ export default class Project {
     this.description = props.description || null
     this.is_visible = props.is_visible || false
     this.project_group_id = props.project_group_id || null
+    this.media_id = props.media || null
   }
 }

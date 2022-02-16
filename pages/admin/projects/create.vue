@@ -9,12 +9,17 @@ export default {
       form: new Project(),
     }
   },
+  computed: {
+    isEdit() {
+      return !!this.$route.params.id
+    },
+  },
   async created() {
     try {
       const { id } = this.$route.params
       if (!id) return
 
-      const { data } = await this.$axios.$get(`/admin/project/${id}`)
+      const { data } = await this.$axios.$get(`/admin/projects/${id}`)
 
       this.form = new Project(data)
     } catch {}
@@ -25,7 +30,9 @@ export default {
       const method = id ? 'patch' : 'post'
       const url = id ? `/admin/projects/${id}` : '/admin/projects'
 
-      await this.$axios[method](url, this.form)
+      const payload = { ...this.form, media_id: this.form.media_id.id }
+
+      await this.$axios[method](url, payload)
     },
   },
   validations() {
@@ -41,7 +48,7 @@ export default {
 </script>
 
 <template>
-  <t-form hide-language-switch :save-method="save">
+  <t-form :hide-cancel="isEdit" hide-language-switch :save-method="save">
     <div class="flex flex-col md:flex-row gap-5 md:items-center mb-4">
       <t-input
         id="project-name"
@@ -64,6 +71,15 @@ export default {
       api-url="/admin/project-groups"
       item-value="id"
       item-text="title"
+      label="Grupa"
+    />
+
+    <t-file-upload
+      id="group-media"
+      v-model="form.media_id"
+      accept=".gif,.jpg,.jpeg,.jfif,.pjpeg,.pjp,.png"
+      label="Group image"
+      class="mb-5"
     />
 
     <t-text-area

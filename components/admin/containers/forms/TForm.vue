@@ -14,6 +14,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    hideCancel: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -60,7 +64,8 @@ export default {
         const message = `Item successfully ` + (isEdit ? 'edited!' : 'created!')
 
         this.$toast.success(message)
-        this.$router.go(-1)
+
+        if (!this.hideCancel) this.$router.go(-1)
       } catch (e) {
         this.$toast.error(this.$extractError(e) || 'Dogodila se greška.')
       }
@@ -161,6 +166,7 @@ export default {
           </div>
           <div>
             <button
+              v-if="!hideCancel"
               type="button"
               class="inline-flex justify-center py-2 px-4 mr-3 border border-transparent shadow-sm text-sm font-medium rounded-md bg-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
               @click="cancel"
