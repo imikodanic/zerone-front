@@ -31,7 +31,7 @@ export default {
     navbarItems() {
       return [
         { title: this.$t('navbar.projects'), to: '/projects' },
-        { title: this.$t('navbar.news'), to: '/news' },
+        /// { title: this.$t('navbar.news'), to: '/news' },
         { title: this.$t('navbar.creators'), to: '/creators2' },
         { title: this.$t('navbar.aboutus'), to: '/about' },
       ]
