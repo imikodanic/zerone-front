@@ -8,12 +8,11 @@ export default {
     return {
       sections: [
         { label: 'Dashboard', to: '/admin', icon: 'icon-home' },
-        { label: 'Groups', to: '/admin/groups', icon: 'icon-grid', count: 4 },
+        { label: 'Groups', to: '/admin/groups', icon: 'icon-grid' },
         {
           label: 'Projects',
           to: '/admin/projects',
           icon: 'icon-layout',
-          count: 10,
         },
       ],
     }
@@ -55,12 +54,12 @@ export default {
               <span class="ml-2 text-sm tracking-wide truncate">
                 {{ section.label }}
               </span>
-              <span
-                v-if="section.count"
-                class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full"
-              >
-                {{ section.count }}
-              </span>
+              <!--              <span-->
+              <!--                v-if="section.count"-->
+              <!--                class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full"-->
+              <!--              >-->
+              <!--                {{ section.count }}-->
+              <!--              </span>-->
             </locale-link>
           </li>
         </ul>
