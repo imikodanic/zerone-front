@@ -4,7 +4,6 @@ import UserPopup from '@/components/layout/UserPopup'
 import LogoHorizontal from '~/static/logos/logo-horizontal.svg?inline'
 import MenuIcon from '~/static/pages/landing-page/menu-icon.svg?inline'
 import CloseIcon from '~/static/pages/landing-page/close-icon.svg?inline'
-import LanguageIcon from '~/static/pages/landing-page/language-icon.svg?inline'
 
 export default {
   name: 'Navbar',
@@ -14,7 +13,6 @@ export default {
     MenuIcon,
     CloseIcon,
     SignInModal,
-    LanguageIcon,
   },
   data() {
     return {
@@ -31,7 +29,7 @@ export default {
     navbarItems() {
       return [
         { title: this.$t('navbar.projects'), to: '/projects' },
-        { title: this.$t('navbar.news'), to: '/news' },
+        /// { title: this.$t('navbar.news'), to: '/news' },
         { title: this.$t('navbar.creators'), to: '/creators2' },
         { title: this.$t('navbar.aboutus'), to: '/about' },
       ]
@@ -89,7 +87,7 @@ export default {
         <div class="flex gap-4 items-center cursor-pointer">
           <custom-icon
             :icon="inactiveLanguageIcon"
-            class="max-h-14"
+            class="max-h-10"
             @click.native="switchLanguage"
           />
           <div v-show="!$auth.loggedIn" class="flex-shrink-0">
@@ -148,7 +146,11 @@ export default {
           >
             {{ item.title }}
           </locale-link>
-          <language-icon class="max-h-14" @click="switchLanguage" />
+          <custom-icon
+            :icon="inactiveLanguageIcon"
+            class="max-h-14"
+            @click.native="switchLanguage"
+          />
         </div>
         <div></div>
         <div class="px-10 mb-20">
