@@ -30,10 +30,17 @@ export default {
     },
     navbarItems() {
       return [
-        { title: this.$t('navbar.projects'), to: '/projects' },
-        /// { title: this.$t('navbar.news'), to: '/news' },
-        { title: this.$t('navbar.creators'), to: '/creators2' },
-        { title: this.$t('navbar.aboutus'), to: '/about' },
+        /* { title: this.$t('navbar.home'), to: '/'},
+         { title: this.$t('navbar.projects'), to: '/projects' },
+         { title: this.$t('navbar.news'), to: '/news' },
+         { title: this.$t('navbar.creators'), to: '/creators2' },
+         { title: this.$t('navbar.aboutus'), to: '/about' },
+         { title: this.$t('navbar.contact'), to: '/contact' }, */
+        { title: this.$t('Home'), to: '/' },
+        { title: this.$t('Projects'), to: '/projects' },
+        { title: this.$t('News'), to: '/news' },
+        { title: this.$t('About'), to: '/about' },
+        { title: this.$t('Contact'), to: '/contact' },
       ]
     },
   },
@@ -61,20 +68,18 @@ export default {
   <div>
     <div class="fixed z-100 h-20 lg:h-24 w-full bg-grayscale-white navbar-shadow sidebar">
       <!-- DESKTOP -->
-      <div class="lg:flex flex-col hidden h-full items-center px-14">
-        <locale-link to="/">
+      <div class="lg:flex flex-col hidden h-full items-center">
+        <locale-link to="/" class="zerone-logo">
           <logo-horizontal class="cursor-pointer" />
         </locale-link>
-        <div class="flex flex-col">
-          <div v-for="(item, i) in navbarItems" :key="`item-${item.to}`" class="inline">
-            <locale-link :to="item.to" class="text-lg text-primary-purple">
+        <div class="flex flex-col ul-sidebar">
+          <div v-for="(item) in navbarItems" :key="`item-${item.to}`" class="inline">
+            <locale-link :to="item.to" class="sidebar-link">
               {{ item.title }}
             </locale-link>
-            <span class="text-primary-yellow mx-5" :class="{ hidden: navbarItems.length === i + 1 }">
-              •
-            </span>
           </div>
         </div>
+        <hr>
         <div class="flex gap-4 items-center cursor-pointer">
           <!--          <custom-icon-->
           <!--            :icon="inactiveLanguageIcon"-->
@@ -82,7 +87,9 @@ export default {
           <!--            @click.native="switchLanguage"-->
           <!--          />-->
           <div v-show="!$auth.loggedIn" class="flex-shrink-0">
-            <t-button class="px-12 py-4 text-2xl flex-grow-0" @click="openSignIn">
+            <t-button
+              class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+              @click="openSignIn">
               {{ $t('navbar.signin') }}
             </t-button>
           </div>
@@ -137,10 +144,35 @@ export default {
 .navbar-shadow {
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.05);
 }
-.sidebar{
-  height:100% !important;
-  width:25%;
+
+.sidebar {
+  height: 100% !important;
+  width: 20%;
 }
+
+.zerone-logo {
+  padding: 2rem;
+}
+
+.sidebar-link {
+  font-size: 2rem;
+}
+
+.ul-sidebar {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.ul-sidebar>div {
+  margin-bottom: 1.5rem;
+}
+
+hr {
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 15vw;
+}
+
 /*noinspection CssUnusedSymbol*/
 a.nuxt-link-exact-active {
   @apply text-primary-black;
