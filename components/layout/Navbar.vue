@@ -59,29 +59,18 @@ export default {
 
 <template>
   <div>
-    <div
-      class="fixed z-100 h-20 lg:h-24 w-full bg-grayscale-white navbar-shadow"
-    >
+    <div class="fixed z-100 h-20 lg:h-24 w-full bg-grayscale-white navbar-shadow sidebar">
       <!-- DESKTOP -->
-      <div
-        class="lg:flex hidden h-full items-center justify-between px-14 xl:px-24"
-      >
+      <div class="lg:flex flex-col hidden h-full items-center px-14">
         <locale-link to="/">
           <logo-horizontal class="cursor-pointer" />
         </locale-link>
-        <div>
-          <div
-            v-for="(item, i) in navbarItems"
-            :key="`item-${item.to}`"
-            class="inline"
-          >
+        <div class="flex flex-col">
+          <div v-for="(item, i) in navbarItems" :key="`item-${item.to}`" class="inline">
             <locale-link :to="item.to" class="text-lg text-primary-purple">
               {{ item.title }}
             </locale-link>
-            <span
-              class="text-primary-yellow mx-5"
-              :class="{ hidden: navbarItems.length === i + 1 }"
-            >
+            <span class="text-primary-yellow mx-5" :class="{ hidden: navbarItems.length === i + 1 }">
               •
             </span>
           </div>
@@ -93,10 +82,7 @@ export default {
           <!--            @click.native="switchLanguage"-->
           <!--          />-->
           <div v-show="!$auth.loggedIn" class="flex-shrink-0">
-            <t-button
-              class="px-12 py-4 text-2xl flex-grow-0"
-              @click="openSignIn"
-            >
+            <t-button class="px-12 py-4 text-2xl flex-grow-0" @click="openSignIn">
               {{ $t('navbar.signin') }}
             </t-button>
           </div>
@@ -104,46 +90,29 @@ export default {
         </div>
       </div>
       <!-- MOBILE -->
-      <div
-        class="menu flex lg:hidden h-full items-center justify-between px-4 py-4"
-      >
-        <menu-icon
-          class="cursor-pointer"
-          aria-label="Open menu"
-          @click="toggleMenu"
-        />
+      <div class="menu flex lg:hidden h-full items-center justify-between px-4 py-4">
+        <menu-icon class="cursor-pointer" aria-label="Open menu" @click="toggleMenu" />
 
         <button
           class="bg-primary-purple text-lg font-bold px-8 py-2 rounded-lg hover:bg-secondary-purple transition-colors"
-          @click="openSignIn"
-        >
+          @click="openSignIn">
           <span class="text-shadow text-grayscale-white"> Sign in </span>
         </button>
       </div>
       <!-- MOBILE MENU -->
       <div
-        class="fixed flex flex-col justify-between z-50 top-0 h-0 w-screen transition-all duration-500 ease-in-out overflow-y-hidden bg-grayscale-white"
-        :class="{ 'h-screen': openedMenu }"
-      >
+        class="fixed flex-row justify-between z-50 top-0 h-0 w-screen transition-all duration-500 ease-in-out overflow-y-hidden bg-grayscale-white"
+        :class="{ 'h-screen': openedMenu }">
         <div class="flex items-center justify-between px-5 w-full pt-5">
           <div class="hidden md:block"></div>
           <locale-link to="/" @click.native="toggleMenu">
             <img src="@/static/logos/logo-horizontal.svg" alt="" />
           </locale-link>
-          <close-icon
-            class="inline-block cursor-pointer"
-            aria-label="Close menu"
-            @click="toggleMenu"
-          />
+          <close-icon class="inline-block cursor-pointer" aria-label="Close menu" @click="toggleMenu" />
         </div>
         <div class="mx-10">
-          <locale-link
-            v-for="item in navbarItems"
-            :key="`item-${item.to}`"
-            :to="item.to"
-            class="text-primary-purple text-4xl block my-8 md:text-center"
-            @click.native="toggleMenu"
-          >
+          <locale-link v-for="item in navbarItems" :key="`item-${item.to}`" :to="item.to"
+            class="text-primary-purple text-4xl block my-8 md:text-center" @click.native="toggleMenu">
             {{ item.title }}
           </locale-link>
           <!--          <language-icon class="max-h-14" @click="switchLanguage" />-->
@@ -152,8 +121,7 @@ export default {
         <div class="px-10 mb-20">
           <button
             class="bg-primary-purple text-2xl font-bold w-full px-8 py-3 rounded-lg hover:bg-secondary-purple transition-colors"
-            @click="openSignIn"
-          >
+            @click="openSignIn">
             <span class="text-shadow text-grayscale-white"> Sign in </span>
           </button>
         </div>
@@ -169,7 +137,10 @@ export default {
 .navbar-shadow {
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.05);
 }
-
+.sidebar{
+  height:100% !important;
+  width:25%;
+}
 /*noinspection CssUnusedSymbol*/
 a.nuxt-link-exact-active {
   @apply text-primary-black;
