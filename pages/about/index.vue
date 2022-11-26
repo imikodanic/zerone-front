@@ -6,5 +6,9 @@
     <div class="text-lg justify-self-center mt-10">
       {{ $t('page.aboutus.content') }}
     </div>
+    <div class="text-lg justify-self-center mt-10">
+      {{ $t('page.aboutus.content') }}
+    </div>
+    <h1>Deee</h1>
   </div>
 </template>

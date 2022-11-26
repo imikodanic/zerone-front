@@ -36,7 +36,7 @@ export default {
 </script>
 
 <template>
-  <div class="px-5 lg:px-32 landing-page">
+  <div class="px-5 lg:px-32 landing-page ml">
     <introduction-section />
     <featured-section :featured-projects="featuredProjects" />
     <groups-section :project-groups="projectGroups" />
@@ -48,6 +48,9 @@ export default {
   background-image: url('/pages/landing-page/section-1/bg-section-1.svg');
   @apply bg-contain;
   @apply bg-no-repeat;
+}
+.ml{
+  margin-left:25%;
 }
 
 @media screen and (max-width: 640px) {
