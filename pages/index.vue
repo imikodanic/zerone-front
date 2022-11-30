@@ -1,10 +1,10 @@
 <script>
-import IntroductionSection from '@/components/pages/landing-page/introduction-section/IntroductionSection'
+// import IntroductionSection from '@/components/pages/landing-page/introduction-section/IntroductionSection'
 import FeaturedSection from '@/components/pages/landing-page/featured-section/FeaturedSection'
 import GroupsSection from '@/components/pages/landing-page/groups-section/GroupsSection'
 export default {
   components: {
-    IntroductionSection,
+    // IntroductionSection,
     FeaturedSection,
     GroupsSection,
   },
@@ -37,7 +37,7 @@ export default {
 
 <template>
   <div class="px-5 lg:px-32 landing-page ml">
-    <introduction-section />
+    <!-- <introduction-section /> -->
     <featured-section :featured-projects="featuredProjects" />
     <groups-section :project-groups="projectGroups" />
   </div>
@@ -45,7 +45,6 @@ export default {
 
 <style scoped>
 .landing-page {
-  background-image: url('/pages/landing-page/section-1/bg-section-1.svg');
   @apply bg-contain;
   @apply bg-no-repeat;
 }
@@ -53,9 +52,4 @@ export default {
   margin-left:25%;
 }
 
-@media screen and (max-width: 640px) {
-  .landing-page {
-    background-image: url('~/static/pages/landing-page/section-1/bg-section-1-mobile.svg');
-  }
-}
 </style>
