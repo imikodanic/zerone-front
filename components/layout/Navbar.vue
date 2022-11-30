@@ -43,6 +43,7 @@ export default {
         { title: this.$t('Contact'), to: '/contact' },
       ]
     },
+
   },
   methods: {
     toggleMenu() {
@@ -80,15 +81,15 @@ export default {
           </div>
         </div>
         <hr>
-        <div class="flex gap-4 items-center cursor-pointer">
+        <div class="flex gap-4 items-center justify-center cursor-pointer pt-10" style="width:100%">
           <!--          <custom-icon-->
           <!--            :icon="inactiveLanguageIcon"-->
           <!--            class="max-h-10 w-10"-->
           <!--            @click.native="switchLanguage"-->
           <!--          />-->
-          <div v-show="!$auth.loggedIn" class="flex-shrink-0">
+          <div v-show="!$auth.loggedIn" class="flex-shrink-0" style="width:60%">
             <t-button
-              class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+              class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 button-log-in"
               @click="openSignIn">
               {{ $t('navbar.signin') }}
             </t-button>
@@ -101,7 +102,7 @@ export default {
         <menu-icon class="cursor-pointer" aria-label="Open menu" @click="toggleMenu" />
 
         <button
-          class="bg-primary-purple text-lg font-bold px-8 py-2 rounded-lg hover:bg-secondary-purple transition-colors"
+          class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500"
           @click="openSignIn">
           <span class="text-shadow text-grayscale-white"> Sign in </span>
         </button>
@@ -127,7 +128,7 @@ export default {
         <div></div>
         <div class="px-10 mb-20">
           <button
-            class="bg-primary-purple text-2xl font-bold w-full px-8 py-3 rounded-lg hover:bg-secondary-purple transition-colors"
+            class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
             @click="openSignIn">
             <span class="text-shadow text-grayscale-white"> Sign in </span>
           </button>
@@ -151,7 +152,7 @@ export default {
 }
 
 .zerone-logo {
-  padding: 2rem;
+  padding: 2rem; 
 }
 
 .sidebar-link {
@@ -172,7 +173,13 @@ hr {
   border-radius: 50%;
   width: 15vw;
 }
-
+.button-log-in{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border-radius: 10px;
+}
+.button-log-in:hover{
+  box-shadow: 0 0 0 0px;
+}
 /*noinspection CssUnusedSymbol*/
 a.nuxt-link-exact-active {
   @apply text-primary-black;

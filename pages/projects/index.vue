@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-  <div class="projects-container">
+  <div class="projects-container ml">
     <h1 class="text-4xl font-bold pt-14">{{ $t('page.projects.title') }}</h1>
     <p class="text-2xl mt-4">
       {{ $t('page.projects.description1') }}
@@ -48,5 +48,8 @@ export default {
   @apply bg-center;
   @apply bg-contain;
   @apply px-5 lg:px-28;
+}
+.ml{
+  margin-left:25% !important;
 }
 </style>

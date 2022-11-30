@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <div class="footer_container h-full sm:h-52 mt-20">
+  <div class="footer_container h-full sm:h-52 mt-20 ml">
     <div
       class="px-5 lg:px-32 flex justify-between flex-col items-center sm:items-start sm:flex-row"
     >
@@ -91,4 +91,8 @@ export default {
 .section_title {
   letter-spacing: 2.5px;
 }
+.ml{
+  margin-left:25%;
+}
+
 </style>

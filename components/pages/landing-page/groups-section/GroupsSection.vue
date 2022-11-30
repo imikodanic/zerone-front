@@ -14,10 +14,10 @@ export default {
 
 <template>
   <div>
-    <h3 class="text-4xl font-bold">{{ $t('page.index.projects') }}</h3>
+    <!-- <h3 class="text-4xl font-bold">{{ $t('page.index.projects') }}</h3>
     <p class="text-2xl mt-4">
       {{ $t('page.index.projectsdesc') }}
-    </p>
+    </p> -->
     <div class="mt-10 flex flex-wrap justify-between">
       <div
         v-for="group in projectGroups"

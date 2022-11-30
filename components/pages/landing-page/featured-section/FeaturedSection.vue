@@ -13,11 +13,10 @@ export default {
 </script>
 
 <template>
-  <div class="mb-32">
-    <h2 class="text-6xl text-center font-bold">
+    <div>
+    <!-- <h2 class="text-6xl text-center font-bold">
       {{ $t('page.index.featured') }}
-    </h2>
-    <div class="mx-auto w-32 h-3 bg-primary-yellow mt-10 mb-14 rounded-full"></div>
+    </h2>  -->
     <div class="flex justify-around flex-wrap">
       <project-card v-for="project in featuredProjects" :key="`project-${project.id}`" :project="project"
         class="mx-5 mb-5" />
