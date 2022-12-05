@@ -91,8 +91,7 @@ export default {
 .section_title {
   letter-spacing: 2.5px;
 }
-.ml{
-  margin-left:25%;
+.ml {
+  margin-left: 20%;
 }
-
 </style>
