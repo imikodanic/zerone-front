@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <locale-link :to="`/news/${news.slug}`" class="max-w-3xl">
+  <locale-link :to="`/news/${news.slug}`" class="max-w-3xl ml">
     <br />
     <br />
     <div class="mx-5">
@@ -79,3 +79,9 @@ export default {
     </div>
   </locale-link>
 </template>
+
+<style>
+.ml {
+  margin-left: 20%;
+}
+</style>
