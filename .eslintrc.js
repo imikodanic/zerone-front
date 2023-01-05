@@ -1,3 +1,6 @@
+/* eslint-disable camelcase */
+/* eslint-enable camelcase */
+ /* eslint-disable */
 module.exports = {
   root: true,
   env: {

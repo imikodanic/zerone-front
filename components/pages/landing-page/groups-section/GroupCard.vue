@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-  <div class="shadow rounded-3xl p-4 pt-0 sm:p-8">
+  <div class="shadow rounded-3xl p-4 pt-0 sm:p-8 .group--card">
     <!-- Box with title, desc and image -->
     <div class="flex justify-between flex-col xl:flex-row items-center">
       <!-- Title, desc and button on 2xl screen -->
@@ -57,3 +57,10 @@ export default {
     </locale-link>
   </div>
 </template>
+
+<style scoped>
+.group--card{
+  height: 100% !important;
+  display: flex;
+}
+</style>

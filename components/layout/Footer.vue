@@ -82,12 +82,6 @@ export default {
 </template>
 
 <style scoped>
-.footer_container {
-  background-image: url('~/static/pages/landing-page/bg-footer-wave.svg');
-  @apply bg-bottom;
-  @apply bg-no-repeat;
-  @apply bg-contain;
-}
 .section_title {
   letter-spacing: 2.5px;
 }

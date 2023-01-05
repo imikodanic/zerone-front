@@ -4,6 +4,7 @@ import UserPopup from '@/components/layout/UserPopup'
 import LogoHorizontal from '~/static/logos/logo-horizontal.svg?inline'
 import MenuIcon from '~/static/pages/landing-page/menu-icon.svg?inline'
 import CloseIcon from '~/static/pages/landing-page/close-icon.svg?inline'
+import HomeIcon from '~/static/icons/home-icon.svg?inline'
 // import LanguageIcon from '~/static/pages/landing-page/language-icon.svg?inline'
 
 export default {
@@ -14,6 +15,7 @@ export default {
     MenuIcon,
     CloseIcon,
     SignInModal,
+    HomeIcon
     // LanguageIcon,
   },
   data() {
@@ -74,10 +76,23 @@ export default {
           <logo-horizontal class="cursor-pointer" />
         </locale-link>
         <div class="flex flex-col ul-sidebar">
-          <div v-for="(item) in navbarItems" :key="`item-${item.to}`" class="inline">
-            <locale-link :to="item.to" class="sidebar-link">
-              {{ item.title }}
-            </locale-link>
+          <div class="flex flex-col">
+            <div class="flex icons">
+              <img src="@/static/icons/home-icon.svg" alt="">
+              <locale-link to="/" class="sidebar-link">Home</locale-link>
+            </div>
+            <div class="flex icons">
+              <img src="@/static/logos/projects-button.svg" alt="">
+              <locale-link to="/projects" class="sidebar-link">Projects</locale-link>
+            </div>
+            <div class="flex icons">
+              <img src="@/static/logos/AboutIcon.svg" alt="">
+              <locale-link to="/about" class="sidebar-link">About</locale-link>
+            </div>
+            <div class="flex icons">
+              <img src="@/static/logos/NewsIcon.svg" alt="">
+            <locale-link to="/news" class="sidebar-link">News</locale-link>
+          </div>
           </div>
         </div>
         <hr>
@@ -142,17 +157,29 @@ export default {
 </template>
 
 <style scoped>
+body{
+  background-color: #F5F5F5 !important;
+}
 .navbar-shadow {
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.05);
 }
-
+.icons{
+  padding-top:2rem;
+  gap:1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.icons img{
+    height: 30px !important;
+}
 .sidebar {
   height: 100% !important;
   width: 20%;
 }
 
 .zerone-logo {
-  padding: 2rem; 
+  padding: 2rem;
 }
 
 .sidebar-link {
@@ -162,6 +189,8 @@ export default {
 .ul-sidebar {
   margin-top: 3.5rem;
   margin-bottom: 3.5rem;
+  width: 100%;
+  padding-left: 4rem;
 }
 
 .ul-sidebar>div {
@@ -173,13 +202,16 @@ hr {
   border-radius: 50%;
   width: 15vw;
 }
-.button-log-in{
+
+.button-log-in {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border-radius: 10px;
 }
-.button-log-in:hover{
+
+.button-log-in:hover {
   box-shadow: 0 0 0 0px;
 }
+
 /*noinspection CssUnusedSymbol*/
 a.nuxt-link-exact-active {
   @apply text-primary-black;
