@@ -106,7 +106,7 @@ export default {
             <t-button
               class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 button-log-in"
               @click="openSignIn">
-              {{ $t('navbar.signin') }}
+              Sign in
             </t-button>
           </div>
           <user-popup v-if="$auth.loggedIn" @logout="logout" />
@@ -157,11 +157,9 @@ export default {
 </template>
 
 <style scoped>
-body{
-  background-color: #F5F5F5 !important;
-}
 .navbar-shadow {
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.05);
+  background: #e5dfdf;
 }
 .icons{
   padding-top:2rem;

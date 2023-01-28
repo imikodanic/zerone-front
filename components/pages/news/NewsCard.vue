@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <locale-link :to="`/news/${news.slug}`" class="max-w-3xl ml">
+  <locale-link :to="`/news/${news.slug}`">
     <br />
     <br />
     <div class="mx-5">
@@ -47,33 +47,10 @@ export default {
           </header>
         </div>
 
-        <div class="col-span-3 row-span-1 ml-4">
+        <div class="col-span-3 row-span-1 ml-4 mb-4">
           <p>
             {{ news.description }}
           </p>
-        </div>
-
-        <div class="col-span-3 row-span-1 mt-2">
-          <div class="flex align-bottom flex-col leading-none p-2 md:p-4">
-            <div class="flex flex-row justify-between items-center">
-              <a
-                class="flex items-center no-underline hover:underline text-black"
-                href="#"
-              >
-                <img
-                  alt="Placeholder"
-                  class="block rounded-full"
-                  src="https://picsum.photos/32/32/?random"
-                />
-                <div class="flex flex-col">
-                  <span class="ml-2 text-sm font-semibold">
-                    {{ news.author }}
-                  </span>
-                  <span class="ml-2 text-sm"> {{ news.date }}</span>
-                </div>
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </div>

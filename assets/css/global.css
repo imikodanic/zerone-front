@@ -22,6 +22,8 @@
 }
 body{
   background-color: #F5F5F5 ;
+  background-image: url('https://img.freepik.com/free-photo/white-concrete-wall_53876-92803.jpg?w=1380&t=st=1674860532~exp=1674861132~hmac=6803f87733ba4d653a667f30fb3eabc172c0964099b519b8f5794271a6d6de7f');
+  background-size: cover;
 }
 
 /*Remove blue highlight when tapping on mobile*/
